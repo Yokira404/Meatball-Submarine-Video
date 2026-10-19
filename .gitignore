@@ -1,5 +1,6 @@
 # Large generated outputs are kept on disk but not in the source checkpoint.
 renders/*.mp4
+!renders/preview-720p.mp4
 renders/render.log
 
 # HyperFrames runtime cache / review artifacts

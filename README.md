@@ -10,14 +10,21 @@ instead — and still promises to come back tomorrow.
 
 ## Watch it
 
+> GitHub repo: <https://github.com/Yokira404/Meatball-Submarine-Video>
+
 ### The rendered film (easiest)
 
 ```
-renders/meatball-submarine-web.mp4    # 136 MB, starts playing immediately
-renders/meatball-submarine.mp4        # 592 MB master, higher bitrate
+renders/preview-720p.mp4              # in this repo, lightweight preview
+renders/meatball-submarine-web.mp4    # 118 MB, full 1080p (kept outside git)
+renders/meatball-submarine.mp4        # 504 MB master (kept outside git)
 ```
 
 1920 × 1080 · 30 fps · 03:11.63 · H.264 + AAC · with the full track.
+
+The two 1080p files exceed GitHub's 100 MB per-file limit, so the repository ships
+the 720p preview and the complete source; run `npm run render` to regenerate the
+1080p master locally.
 
 ### The storyboard contact sheet
 
@@ -25,11 +32,11 @@ renders/meatball-submarine.mp4        # 592 MB master, higher bitrate
 renders/storyboard-contact-sheet.jpg
 ```
 
-16 frames pulled from the finished MP4, with scene names and timestamps.
+22 panels pulled from the finished MP4, with scene names and timestamps.
 
 ### The portable HTML player
 
-The player loads the 13 animated scenes in iframes and keeps its own audio clock, so it
+The player loads the 22 animated scenes in iframes and keeps its own audio clock, so it
 plays exactly like the render and supports seeking.
 
 ```bash
