@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>04 — Launch</title></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="04-f4"] { background: var(--navy); }
+        [data-composition-id="04-f4"] .f4-cover {
+          position: absolute; left: 50%; top: 58%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--navy-2);
+          z-index: 96; transform: scale(1);
+        }
+        [data-composition-id="04-f4"] .f4-iris {
+          position: absolute; left: 50%; top: 52%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--paper);
+          z-index: 95; transform: scale(0);
+        }
+        [data-composition-id="04-f4"] .f4-chorus {
+          position: absolute; right: 92px; top: 88px; z-index: 25; opacity: 0;
+        }
+        [data-composition-id="04-f4"] .f4-chorus .stamp { font-size: 20px; padding: 8px 14px 6px; }
+        [data-composition-id="04-f4"] .f4-so {
+          position: absolute; left: 84px; top: 96px; z-index: 26;
+          color: var(--paper); font-size: 176px; line-height: .78;
+          -webkit-text-stroke: 2.5px var(--ink);
+          text-shadow: 9px 9px 0 var(--red), 17px 17px 0 rgba(9,12,28,.28);
+          opacity: 0;
+        }
+        [data-composition-id="04-f4"] .f4-strips { position: absolute; left: 84px; top: 300px; z-index: 24; width: 820px; }
+        [data-composition-id="04-f4"] .f4-strip {
+          display: inline-block; position: relative; background: var(--paper); color: var(--ink);
+          font-family: "Fraunces"; font-weight: 600; font-size: 48px; line-height: 1.02;
+          letter-spacing: -.02em; padding: 10px 18px 10px; margin: 0 0 14px;
+          box-shadow: 7px 7px 0 rgba(9,12,28,.22); opacity: 0;
+        }
+        [data-composition-id="04-f4"] .f4-strip.red { background: var(--red); color: var(--paper); }
+        [data-composition-id="04-f4"] .f4-strip.mustard { background: var(--mustard); color: var(--ink); }
+        [data-composition-id="04-f4"] .f4-strip.navy { background: var(--navy-2); color: var(--paper); }
+        [data-composition-id="04-f4"] .f4-deepband {
+          position: absolute; left: 0; top: 496px; z-index: 27; width: 860px; height: 122px;
+          background: var(--navy-2); color: var(--paper); display: flex; align-items: center;
+          padding: 0 84px; opacity: 0;
+          box-shadow: 8px 8px 0 rgba(9,12,28,.24);
+        }
+        [data-composition-id="04-f4"] .f4-deepband .display { font-size: 94px; line-height: 1; }
+        [data-composition-id="04-f4"] .f4-deepband .mono { margin-left: auto; font-size: 12px; color: var(--seafoam); text-align: right; line-height: 1.5; }
+        [data-composition-id="04-f4"] .f4-just {
+          position: absolute; z-index: 29; opacity: 0;
+          font-size: 38px; padding: 12px 18px 9px;
+        }
+        [data-composition-id="04-f4"] .f4-speed { position: absolute; inset: 0; z-index: 12; opacity: .55; }
+        [data-composition-id="04-f4"] .f4-depth {
+          position: absolute; right: 92px; bottom: 80px; z-index: 25; text-align: right;
+          background: rgba(242,231,209,.88); color: var(--ink); padding: 10px 14px 8px;
+          box-shadow: 5px 5px 0 rgba(9,12,28,.18); opacity: 0;
+        }
+        [data-composition-id="04-f4"] .f4-depth .mono { font-size: 12px; letter-spacing: .1em; color: var(--ink); }
+      </style>
+
+      <div id="root" data-composition-id="04-f4" data-width="1920" data-height="1080" data-duration="12.91">
+        <div class="plate" id="f4-plate">
+          <img src="../../assets/img/launch.jpg" alt="The whale-maid at the wheel of the sandwich submarine" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <svg class="f4-speed" id="f4-speed" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="#f2e7d1" stroke-width="2.4" opacity=".8">
+            <line x1="0" y1="120" x2="560" y2="88" /><line x1="0" y1="196" x2="390" y2="172" />
+            <line x1="0" y1="900" x2="460" y2="930" /><line x1="0" y1="976" x2="600" y2="1000" />
+            <line x1="1400" y1="70" x2="1920" y2="42" /><line x1="1520" y1="1000" x2="1920" y2="1018" />
+          </g>
+        </svg>
+
+        <div class="bubble-field" id="f4-bubbles"></div>
+
+        <div class="f4-chorus" id="f4-chorus"><div class="stamp ink">CHORUS 01 · ATLANTIC</div></div>
+        <div class="f4-so display" id="f4-so">So I leap</div>
+
+        <div class="f4-strips">
+          <div class="f4-strip" id="f4-strip1" style="font-size: 42px;">And swim against<br />Atlantic stream</div>
+          <div class="f4-strip mustard" id="f4-strip2">To show you what<br />I've achieved</div>
+        </div>
+
+        <div class="f4-deepband" id="f4-deep">
+          <div class="display" style="font-style: normal; font-weight: 600;">Going deep</div>
+          <div class="mono">DEPTH<br />01840 M</div>
+        </div>
+
+        <div class="f4-strips" style="top: 660px;">
+          <div class="f4-strip red" id="f4-strip3" style="font-size: 42px;">Tonight we'll make<br />dinner a feast</div>
+        </div>
+
+        <div class="f4-just stamp solid" id="f4-just1" style="left: 92px; top: 862px;">Just count it on me</div>
+        <div class="f4-just stamp ink" id="f4-just2" style="left: 470px; top: 940px;">Just count it on me</div>
+
+        <div class="f4-depth kicker" id="f4-depth">
+          <div class="mono">SPEED: 06.2 KNOTS · HEADING: 245°</div>
+        </div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f4-iris" id="f4-iris"></div>
+        <div class="f4-cover" id="f4-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("04-f4", function (tl, root) {
+          // navy hatch from Frame 3 opens
+          tl.fromTo("#f4-cover", { scale: 1 }, { scale: 0, duration: 0.5, ease: "power3.out" }, 0);
+
+          HF.plate(tl, "#f4-plate img", { s0: 1.12, s1: 1.02, x0: -34, x1: 26, y0: 12, y1: -10, dur: 12.91, at: 0 });
+          HF.bubbles(tl, root, { count: 20, dur: 10.5, min: 8, max: 40, spread: 8.4, opacity: .8, z: 10 });
+
+          HF.stamp(tl, "#f4-chorus .stamp", 0.4, { rot: 3 });
+          HF.stamp(tl, "#f4-so", 0.0, { rot: -3, dur: 0.55 });
+
+          tl.fromTo("#f4-strip1", { opacity: 0, x: -90, rotation: -2 }, { opacity: 1, x: 0, rotation: -0.6, duration: 0.45, ease: "back.out(1.4)" }, 1.4);
+          tl.fromTo("#f4-strip2", { opacity: 0, x: -90, rotation: 2 }, { opacity: 1, x: 0, rotation: 0.7, duration: 0.45, ease: "back.out(1.4)" }, 3.62);
+
+          // going deep — navy band + wash
+          tl.fromTo("#f4-deep", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out" }, 5.64);
+          tl.fromTo("#f4-plate", { filter: "brightness(1)" }, { filter: "brightness(.72) saturate(.9)", duration: 0.6, ease: "sine.out" }, 5.64);
+          tl.to("#f4-plate", { filter: "brightness(1)", duration: 0.8, ease: "sine.inOut" }, 7.0);
+
+          tl.fromTo("#f4-strip3", { opacity: 0, x: -90, rotation: -2 }, { opacity: 1, x: 0, rotation: 0.4, duration: 0.5, ease: "back.out(1.4)" }, 7.07);
+          HF.stamp(tl, "#f4-just1", 9.06, { rot: -3.2, dur: 0.4 });
+          HF.stamp(tl, "#f4-just2", 10.47, { rot: 2.6, dur: 0.4 });
+          HF.reveal(tl, "#f4-depth", 2.0, { y: 10, dur: .5 });
+
+          // chorus kicks: plate pulse + speed lines
+          [0.0, 0.71, 1.43, 2.14, 2.86, 3.57, 4.29, 5.0].forEach(function (t, i) {
+            tl.to("#f4-plate img", { scale: 1.02 + (i % 3) * 0.006, duration: 0.12, ease: "power2.out" }, t + 0.02);
+            tl.to("#f4-plate img", { scale: 1.03, duration: 0.26, ease: "sine.in" }, t + 0.14);
+            tl.to("#f4-speed", { opacity: .22 + (i % 2) * .18, duration: 0.1 }, t);
+            tl.to("#f4-speed", { opacity: .55, duration: 0.3 }, t + 0.1);
+          });
+
+          // cream iris into the coral valley
+          tl.fromTo("#f4-iris", { scale: 0 }, { scale: 1, duration: 0.85, ease: "power3.in" }, 12.05);
+        });
+      </script>
+    </template>
+  </body>
+</html>

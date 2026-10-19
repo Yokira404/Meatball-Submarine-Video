@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>02-f2 preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="02-f2"] { background: var(--paper); }
+        [data-composition-id="02-f2"] .f2-cover {
+          position: absolute; left: 50%; top: 50%; width: 2600px; height: 2600px;
+          margin: -1300px 0 0 -1300px; border-radius: 50%; background: var(--paper);
+          z-index: 95; transform: scale(1);
+        }
+        [data-composition-id="02-f2"] .f2-recipe {
+          position: absolute; left: 82px; top: 566px; width: 760px; z-index: 22;
+          padding: 30px 36px 28px; transform: rotate(-1.2deg);
+        }
+        [data-composition-id="02-f2"] .f2-recipe .no {
+          display: flex; justify-content: space-between; align-items: baseline;
+          color: var(--red); margin-bottom: 14px;
+        }
+        [data-composition-id="02-f2"] .f2-recipe .no .mono { font-size: 13px; letter-spacing: .12em; }
+        [data-composition-id="02-f2"] .f2-recipe h2 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 82px; line-height: .96;
+          letter-spacing: -.035em; margin: 0 0 10px;
+        }
+        [data-composition-id="02-f2"] .f2-recipe h2 em { font-style: italic; color: var(--red); }
+        [data-composition-id="02-f2"] .f2-recipe .foot {
+          display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;
+        }
+        [data-composition-id="02-f2"] .f2-tag {
+          position: absolute; z-index: 24; padding: 10px 16px 8px;
+          background: var(--paper); color: var(--ink); border: 2px solid var(--ink);
+          font-family: "Space Mono"; font-weight: 700; font-size: 17px; letter-spacing: .14em;
+          box-shadow: 4px 4px 0 rgba(22,23,42,.24); opacity: 0;
+        }
+        [data-composition-id="02-f2"] .f2-tag i {
+          display: block; font-style: normal; font-family: "Space Grotesk"; font-weight: 500;
+          font-size: 11px; letter-spacing: .12em; color: rgba(22,23,42,.62); margin-top: 2px;
+        }
+        [data-composition-id="02-f2"] .f2-excite {
+          position: absolute; left: 1006px; top: 744px; z-index: 28;
+          font-size: 52px; padding: 18px 28px 15px; opacity: 0;
+        }
+        [data-composition-id="02-f2"] .f2-excite small {
+          display: block; font-family: "Space Grotesk"; font-size: 13px; letter-spacing: .16em;
+          margin-top: 6px; opacity: .85;
+        }
+        [data-composition-id="02-f2"] .f2-steam {
+          position: absolute; z-index: 9; border-radius: 50%;
+          background: radial-gradient(circle at 40% 40%, rgba(247,238,218,.75), rgba(247,238,218,0) 70%);
+          filter: blur(7px); opacity: 0;
+        }
+        [data-composition-id="02-f2"] .f2-side {
+          position: absolute; right: 92px; top: 96px; z-index: 22; text-align: right;
+          color: var(--ink); opacity: 0;
+        }
+        [data-composition-id="02-f2"] .f2-side .big { font-family: "Fraunces"; font-size: 28px; font-weight: 600; letter-spacing: -.02em; }
+        [data-composition-id="02-f2"] .f2-side .mono { font-size: 12px; margin-top: 6px; color: rgba(22,23,42,.62); }
+        [data-composition-id="02-f2"] .f2-stamp-noise {
+          position: absolute; right: 96px; bottom: 74px; z-index: 22; opacity: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="02-f2" data-width="1920" data-height="1080" data-duration="11.1">
+        <div class="plate" id="f2-plate">
+          <img src="../../assets/img/kitchen.jpg" alt="The whale-maid stirs tomato sauce in the submarine galley" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <div class="bubble-field" id="f2-bubbles"></div>
+        <div id="f2-steam-host"></div>
+
+        <div class="f2-tag" id="f2-tag1" style="left: 524px; top: 300px;">TOMATO<i>very ripe · 6</i></div>
+        <div class="f2-tag" id="f2-tag2" style="left: 742px; top: 252px;">ONION<i>blocks · 1</i></div>
+        <div class="f2-tag" id="f2-tag3" style="left: 640px; top: 470px;">MEATBALL<i>seats · 12</i></div>
+
+        <div class="f2-recipe card torn-a" id="f2-recipe">
+          <div class="no"><span class="kicker">RECIPE No. 07</span><span class="mono">SERVES: THE ATLANTIC</span></div>
+          <h2>Tomato sauce<br /><em>simmering</em> with<br />onion blocks</h2>
+          <div class="foot">
+            <span class="chip red">low heat</span>
+            <span class="chip">stir slowly</span>
+            <span class="chip mustard">do not sink</span>
+          </div>
+        </div>
+
+        <div class="f2-excite stamp solid" id="f2-excite">How exciting!<small>CHEF'S NOTE</small></div>
+
+        <div class="f2-stamp-noise" id="f2-noise"><div class="stamp ink" style="font-size:18px;padding:7px 12px 5px;letter-spacing:.12em;">washing up: later</div></div>
+        <div class="f2-side" id="f2-side">
+          <div class="big">The galley, 2,040 m down</div>
+          <div class="mono">PRESSURE: FINE · DINNER: ON TIME</div>
+        </div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f2-cover" id="f2-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("02-f2", function (tl, root) {
+          // the cream iris from Frame 1 opens
+          tl.fromTo("#f2-cover", { scale: 1 }, { scale: 0, duration: 0.78, ease: "power3.out" }, 0.02);
+
+          HF.plate(tl, "#f2-plate img", { s0: 1.03, s1: 1.14, x0: 20, x1: -54, y0: -8, y1: 14, dur: 11.1, at: 0 });
+          HF.bubbles(tl, root, { count: 10, dur: 8.5, min: 6, max: 22, spread: 6.2, opacity: .6, z: 6 });
+
+          // steam
+          var host = document.getElementById("f2-steam-host");
+          for (var i = 0; i < 7; i++) {
+            var d = document.createElement("div");
+            d.className = "f2-steam";
+            var s = 90 + HF.rand(i, 41) * 150;
+            d.style.width = s + "px";
+            d.style.height = s + "px";
+            d.style.left = 500 + HF.rand(i, 42) * 330 + "px";
+            d.style.top = 500 + HF.rand(i, 43) * 80 + "px";
+            host.appendChild(d);
+          }
+          HF.all(".f2-steam").forEach(function (el, i) {
+            var at = 0.4 + i * 0.85;
+            tl.fromTo(el, { opacity: 0, y: 30, scale: .7 }, { opacity: .52, scale: 1.15, duration: .8, ease: "sine.out" }, at);
+            tl.to(el, { y: -250 - HF.rand(i, 44) * 140, x: (HF.rand(i, 45) - .5) * 90, opacity: 0, scale: 1.7, duration: 3.6, ease: "sine.in" }, at + .5);
+          });
+
+          // recipe + tags
+          tl.fromTo("#f2-recipe", { opacity: 0, x: -40, y: 20, rotation: -3 }, { opacity: 1, x: 0, y: 0, rotation: -1.2, duration: .7, ease: "power3.out" }, 0.15);
+          HF.stamp(tl, "#f2-tag1", 1.1, { rot: -5 });
+          HF.stamp(tl, "#f2-tag2", 2.45, { rot: 4 });
+          HF.stamp(tl, "#f2-tag3", 3.9, { rot: -3 });
+          HF.reveal(tl, "#f2-side", 4.6, { y: 14, dur: .6 });
+
+          // "How exciting!"
+          HF.stamp(tl, "#f2-excite", 8.45, { rot: -4.5, dur: .5 });
+          HF.reveal(tl, "#f2-noise", 9.35, { y: 10, dur: .4 });
+
+          // little steam accents on the beat
+          [5.4, 6.83, 8.26, 9.69].forEach(function (t) {
+            tl.to("#f2-recipe", { rotation: -1.2 + (t % 2 ? .35 : -.25), duration: .18, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+          });
+
+          // steam wipe
+          tl.to("#f2-plate img", { filter: "blur(1.6px)", duration: .5 }, 10.5);
+          tl.fromTo("#f2-cover", { scale: 0 }, { scale: 1, duration: .6, ease: "power3.in" }, 10.48);
+        });
+      </script>
+    
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>06 — Abyss</title></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="06-f6"] { background: #091024; }
+        [data-composition-id="06-f6"] .f6-bg {
+          position: absolute; inset: 0;
+          background:
+            radial-gradient(90% 70% at 72% 42%, rgba(37, 66, 118, .55), transparent 62%),
+            radial-gradient(50% 40% at 72% 42%, rgba(131, 183, 166, .12), transparent 70%),
+            #091024;
+        }
+        [data-composition-id="06-f6"] .f6-grid {
+          position: absolute; inset: 0; opacity: .12;
+          background-image: linear-gradient(rgba(242,231,209,.35) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(242,231,209,.35) 1px, transparent 1px);
+          background-size: 90px 90px;
+        }
+        [data-composition-id="06-f6"] .f6-port {
+          position: absolute; left: 1020px; top: 160px; width: 760px; height: 760px;
+          border-radius: 50%; overflow: hidden; border: 16px solid var(--paper);
+          box-shadow: 0 0 0 6px rgba(212,70,47,.65), 0 34px 60px rgba(0,0,0,.45),
+                      inset 0 0 50px rgba(0,0,0,.45);
+          background: #0a1226;
+        }
+        [data-composition-id="06-f6"] .f6-port img {
+          position: absolute; left: -150px; top: -150px; width: 1060px; height: 1060px;
+          object-fit: cover; border-radius: 50%;
+          filter: saturate(.85) brightness(.78) contrast(1.05);
+        }
+        [data-composition-id="06-f6"] .f6-port .glass {
+          position: absolute; inset: 0; border-radius: 50%;
+          background: radial-gradient(circle at 36% 28%, rgba(242,231,209,.14), transparent 34%),
+                      radial-gradient(circle at 50% 50%, transparent 58%, rgba(0,0,0,.38) 100%);
+        }
+        [data-composition-id="06-f6"] .f6-sonar {
+          position: absolute; inset: 0; border-radius: 50%;
+        }
+        [data-composition-id="06-f6"] .f6-sonar .ring {
+          position: absolute; left: 50%; top: 50%; border: 1.5px solid rgba(131,183,166,.55);
+          border-radius: 50%; transform: translate(-50%, -50%);
+        }
+        [data-composition-id="06-f6"] .f6-sweep {
+          position: absolute; inset: 0; border-radius: 50%;
+          background: conic-gradient(from 0deg, rgba(131,183,166,0) 0deg, rgba(131,183,166,.05) 18deg, rgba(131,183,166,.42) 56deg, rgba(131,183,166,0) 78deg, rgba(131,183,166,0) 360deg);
+          opacity: .9;
+        }
+        [data-composition-id="06-f6"] .f6-blip {
+          position: absolute; width: 18px; height: 18px; border-radius: 50%;
+          background: var(--red); box-shadow: 0 0 0 5px rgba(212,70,47,.25), 0 0 18px rgba(212,70,47,.8);
+          opacity: 0;
+        }
+        [data-composition-id="06-f6"] .f6-bolt {
+          position: absolute; left: 50%; top: 50%; width: 13px; height: 13px;
+          margin: -6.5px 0 0 -6.5px; border-radius: 50%; background: var(--mustard);
+          border: 2px solid #8a5d1b;
+        }
+        [data-composition-id="06-f6"] .f6-gauge {
+          position: absolute; left: 92px; top: 156px; width: 300px; z-index: 22;
+        }
+        [data-composition-id="06-f6"] .f6-gauge .head {
+          color: var(--paper); border-bottom: 2px solid rgba(242,231,209,.45);
+          padding-bottom: 8px; margin-bottom: 12px; display: flex; justify-content: space-between;
+        }
+        [data-composition-id="06-f6"] .f6-gauge .head span { font-size: 12px; color: var(--seafoam); }
+        [data-composition-id="06-f6"] .f6-paper {
+          position: relative; width: 100%; height: 520px; background: var(--paper);
+          box-shadow: 10px 12px 0 rgba(0,0,0,.35); padding: 22px 22px;
+          clip-path: polygon(1% 1%, 99% 0%, 99.4% 99%, 0.6% 98.6%);
+        }
+        [data-composition-id="06-f6"] .f6-ticks {
+          position: absolute; left: 22px; top: 20px; width: 20px; height: 480px;
+          background-image: repeating-linear-gradient(to bottom, var(--ink) 0 2px, transparent 2px 16px);
+          opacity: .55;
+        }
+        [data-composition-id="06-f6"] .f6-ticks.big {
+          left: 8px; width: 44px;
+          background-image: repeating-linear-gradient(to bottom, var(--ink) 0 3px, transparent 3px 80px);
+          opacity: .8;
+        }
+        [data-composition-id="06-f6"] .f6-marker {
+          position: absolute; left: 6px; top: 26px; width: 280px; height: 3px;
+          background: var(--red); z-index: 4;
+        }
+        [data-composition-id="06-f6"] .f6-marker:before {
+          content: ""; position: absolute; left: -14px; top: -7px;
+          border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+          border-left: 15px solid var(--red);
+        }
+        [data-composition-id="06-f6"] .f6-meter {
+          position: absolute; left: 62px; top: 28px; width: 200px;
+          font-family: "Space Mono"; font-weight: 700; color: var(--ink);
+        }
+        [data-composition-id="06-f6"] .f6-meter .tiny { color: rgba(22,23,42,.55); }
+        [data-composition-id="06-f6"] .f6-depth {
+          font-size: 54px; letter-spacing: -.04em; line-height: 1; margin-top: 8px;
+          font-variant-numeric: tabular-nums;
+        }
+        [data-composition-id="06-f6"] .f6-depth em { font-style: normal; color: var(--red); }
+        [data-composition-id="06-f6"] .f6-status {
+          position: absolute; left: 62px; bottom: 26px; width: 200px;
+          font-family: "Space Mono"; font-size: 11px; letter-spacing: .08em;
+          color: rgba(22,23,42,.6); line-height: 1.5;
+        }
+        [data-composition-id="06-f6"] .f6-copy {
+          position: absolute; left: 92px; bottom: 92px; z-index: 26; color: var(--paper);
+        }
+        [data-composition-id="06-f6"] .f6-copy .display { font-size: 126px; line-height: .82; opacity: 0; }
+        [data-composition-id="06-f6"] .f6-nosignal {
+          position: absolute; left: 92px; top: 38px; z-index: 30;
+        }
+        [data-composition-id="06-f6"] .f6-flash {
+          position: absolute; inset: 0; background: var(--mustard); opacity: 0; z-index: 80;
+        }
+        [data-composition-id="06-f6"] .f6-cover {
+          position: absolute; left: 50%; top: 50%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--navy-2);
+          z-index: 96; transform: scale(1);
+        }
+      </style>
+
+      <div id="root" data-composition-id="06-f6" data-width="1920" data-height="1080" data-duration="11.3">
+        <div class="f6-bg" id="f6-bg"></div>
+        <div class="f6-grid"></div>
+
+        <div class="f6-port" id="f6-port">
+          <img src="../../assets/img/abyss.jpg" alt="A porthole view of the submarine sinking into the abyss" />
+          <div class="f6-sonar" id="f6-sonar">
+            <div class="ring" style="width: 240px; height: 240px;"></div>
+            <div class="ring" style="width: 400px; height: 400px;"></div>
+            <div class="ring" style="width: 560px; height: 560px;"></div>
+            <div class="ring" style="width: 700px; height: 700px;"></div>
+            <div class="f6-sweep" id="f6-sweep"></div>
+            <div class="f6-blip" id="f6-blip1" style="left: 68%; top: 58%;"></div>
+            <div class="f6-blip" id="f6-blip2" style="left: 34%; top: 66%; width: 12px; height: 12px;"></div>
+            <div class="f6-blip" id="f6-blip3" style="left: 58%; top: 30%; width: 14px; height: 14px;"></div>
+          </div>
+          <div class="glass"></div>
+        </div>
+
+        <div class="f6-gauge" id="f6-gauge">
+          <div class="head kicker"><span>DESCENT LOG</span><span class="mono">SONAR</span></div>
+          <div class="f6-paper">
+            <div class="f6-ticks big"></div>
+            <div class="f6-ticks"></div>
+            <div class="f6-meter">
+              <div class="tiny">DEPTH</div>
+              <div class="f6-depth" id="f6-d1">0200<em> m</em></div>
+              <div class="f6-depth" id="f6-d2" style="position:absolute; top:28px; left:0; opacity:0;">0860<em> m</em></div>
+              <div class="f6-depth" id="f6-d3" style="position:absolute; top:28px; left:0; opacity:0;">1860<em> m</em></div>
+            </div>
+            <div class="f6-marker" id="f6-marker"></div>
+            <div class="f6-status">PRESSURE ................ OK<br />HULL TEMP ................ 2°C<br />CREW ..................... 1<br />MORALE ................... HIGH</div>
+          </div>
+        </div>
+
+        <div class="f6-nosignal" id="f6-nosignal"><div class="stamp solid">No signal</div></div>
+        <div class="f6-copy">
+          <div class="display paper-text" id="f6-deep">Deeper</div>
+          <div class="kicker" style="color:var(--seafoam);margin-top:36px;font-size:14px;">ATLANTIC TRENCH · 1,860 M · NO SUNLIGHT</div>
+        </div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f6-flash" id="f6-flash"></div>
+        <div class="f6-cover" id="f6-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("06-f6", function (tl, root) {
+          tl.fromTo("#f6-cover", { scale: 1 }, { scale: 0, duration: .7, ease: "power3.out" }, 0);
+
+          // bolts around the porthole
+          var port = document.getElementById("f6-port");
+          for (var i = 0; i < 12; i++) {
+            var b = document.createElement("div");
+            b.className = "f6-bolt";
+            var a = (i / 12) * Math.PI * 2;
+            b.style.transform = "translate(" + Math.cos(a) * 356 + "px," + Math.sin(a) * 356 + "px)";
+            port.appendChild(b);
+          }
+
+          // the disc slowly rotates; sonar sweep rotates faster
+          HF.plate(tl, "#f6-port img", { s0: 1.02, s1: 1.08, x0: 8, x1: -10, y0: 0, y1: 16, dur: 11.3, at: 0 });
+          tl.fromTo("#f6-sweep", { rotation: 0 }, { rotation: 360, duration: 5.6, ease: "none" }, 0);
+
+          // depth readings
+          HF.reveal(tl, "#f6-gauge", 0.1, { y: 20, dur: .7 });
+          tl.to("#f6-d1", { opacity: 0, duration: .25 }, 2.0);
+          tl.fromTo("#f6-d2", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: .3, ease: "power2.out" }, 2.1);
+          tl.to("#f6-d2", { opacity: 0, duration: .25 }, 4.2);
+          tl.fromTo("#f6-d3", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: .3, ease: "power2.out" }, 4.3);
+          tl.fromTo("#f6-marker", { y: 26 }, { y: 300, duration: 9.4, ease: "sine.inOut" }, .4);
+
+          // blips
+          HF.stamp(tl, "#f6-blip1", 2.14, { rot: 0, dur: .3 });
+          HF.stamp(tl, "#f6-blip2", 4.29, { rot: 0, dur: .3 });
+          HF.stamp(tl, "#f6-blip3", 6.43, { rot: 0, dur: .3 });
+          [2.14, 4.29, 6.43].forEach(function (t, i) {
+            tl.to("#f6-port", { filter: "brightness(1.25)", duration: .08 }, t);
+            tl.to("#f6-port", { filter: "brightness(1)", duration: .25 }, t + .08);
+          });
+
+          HF.stamp(tl, "#f6-nosignal .stamp", 8.58, { rot: -3, dur: .42 });
+          HF.reveal(tl, "#f6-deep", 1.2, { y: 40, dur: 1.0, ease: "power3.out" });
+          tl.to("#f6-deep", { opacity: .35, duration: .5 }, 8.6);
+
+          // last mustard flash into the galley
+          tl.fromTo("#f6-flash", { opacity: 0 }, { opacity: 1, duration: .18, ease: "power2.in" }, 11.02);
+        });
+      </script>
+    </template>
+  </body>
+</html>

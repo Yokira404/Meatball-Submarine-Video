@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>01-f1 preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="01-f1"] { background: #0d1631; }
+
+        [data-composition-id="01-f1"] .f1-cover {
+          position: absolute; inset: 0; background: #0d1631; z-index: 96;
+        }
+        [data-composition-id="01-f1"] .f1-iris {
+          position: absolute; left: 50%; top: 50%; width: 2600px; height: 2600px;
+          margin: -1300px 0 0 -1300px; border-radius: 50%; background: var(--paper);
+          z-index: 95; transform: scale(0);
+        }
+
+        [data-composition-id="01-f1"] .f1-copy {
+          position: absolute; left: 100px; top: 228px; width: 1320px; z-index: 20;
+        }
+        [data-composition-id="01-f1"] .f1-kicker {
+          color: var(--paper); margin-bottom: 26px; opacity: 0;
+        }
+        [data-composition-id="01-f1"] .f1-kicker em { color: var(--mustard); font-style: normal; }
+
+        [data-composition-id="01-f1"] .f1-title {
+          color: var(--paper);
+          text-shadow: 7px 7px 0 rgba(212, 70, 47, 0.92), 12px 12px 0 rgba(9, 12, 28, 0.28);
+          font-size: 218px;
+          letter-spacing: -0.055em;
+        }
+        [data-composition-id="01-f1"] .f1-title .line {
+          display: block; overflow: hidden; padding-right: 18px;
+        }
+        [data-composition-id="01-f1"] .f1-title .line > span { display: block; }
+        [data-composition-id="01-f1"] .f1-submarine { color: var(--mustard); text-shadow: 7px 7px 0 rgba(9, 12, 28, 0.32); }
+
+        [data-composition-id="01-f1"] .f1-rule {
+          width: 640px; height: 5px; background: var(--red); margin: 34px 0 22px;
+          transform-origin: left center;
+        }
+        [data-composition-id="01-f1"] .f1-sub {
+          color: var(--paper); font-size: 31px; letter-spacing: 0.12em;
+          text-transform: uppercase; font-weight: 500; opacity: 0;
+          display: inline-block; width: fit-content; padding: 9px 16px 8px;
+          max-width: 760px; line-height: 1.42;
+          background: rgba(16, 26, 57, 0.62);
+          box-shadow: 0 0 0 8px rgba(16, 26, 57, 0.62);
+        }
+        [data-composition-id="01-f1"] .f1-sub span { display: block; }
+        [data-composition-id="01-f1"] .f1-sub b { color: var(--seafoam); font-weight: 700; }
+
+        [data-composition-id="01-f1"] .f1-credit {
+          position: absolute; right: 96px; bottom: 78px; z-index: 22;
+          color: rgba(242, 231, 209, 0.78); text-align: right; opacity: 0;
+        }
+        [data-composition-id="01-f1"] .f1-credit .big { color: var(--paper); font-size: 22px; }
+
+        [data-composition-id="01-f1"] .f1-seal {
+          position: absolute; right: 110px; top: 92px; z-index: 24;
+          width: 178px; height: 178px; border: 3px solid var(--red); border-radius: 50%;
+          display: grid; place-content: center; text-align: center; color: var(--paper);
+          transform: rotate(8deg); opacity: 0;
+          background: rgba(242, 231, 209, 0.06);
+          box-shadow: 0 0 0 9px rgba(212, 70, 47, 0.13), 0 0 0 12px rgba(212, 70, 47, 0.3);
+        }
+        [data-composition-id="01-f1"] .f1-seal .n { font-family: "Space Mono"; font-weight: 700; font-size: 51px; line-height: 1; }
+        [data-composition-id="01-f1"] .f1-seal .k { font-family: "Space Mono"; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; margin-top: 8px; }
+
+        [data-composition-id="01-f1"] .f1-stamp-wrap {
+          position: absolute; left: 104px; bottom: 196px; z-index: 26;
+        }
+        [data-composition-id="01-f1"] .f1-stamp-wrap .stamp { font-size: 26px; padding: 11px 20px 9px; }
+
+        [data-composition-id="01-f1"] .f1-menu {
+          position: absolute; right: 108px; bottom: 184px; z-index: 26; width: 360px;
+          padding: 24px 28px 20px; opacity: 0;
+        }
+        [data-composition-id="01-f1"] .f1-menu .k { color: var(--red); margin-bottom: 8px; }
+        [data-composition-id="01-f1"] .f1-menu .t { font-family: "Fraunces"; font-weight: 600; font-size: 34px; line-height: 1.02; }
+        [data-composition-id="01-f1"] .f1-menu .d { margin-top: 10px; font-family: "Space Mono"; font-size: 12px; letter-spacing: 0.1em; color: rgba(22,23,42,.7); }
+
+        [data-composition-id="01-f1"] .f1-waves { position: absolute; left: -5%; bottom: -10px; width: 110%; z-index: 12; }
+
+        [data-composition-id="01-f1"] .f1-bubbles { position: absolute; inset: 0; z-index: 11; }
+
+        [data-composition-id="01-f1"] .f1-moon-ring {
+          position: absolute; right: 296px; top: 74px; width: 500px; height: 500px;
+          border: 1.5px solid rgba(242, 231, 209, 0.32); border-radius: 50%; z-index: 5;
+        }
+      </style>
+
+      <div id="root" data-composition-id="01-f1" data-width="1920" data-height="1080" data-duration="11.3">
+        <div class="plate" id="f1-plate">
+          <img src="../../assets/img/title-dark.jpg" alt="" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <div class="f1-moon-ring" id="f1-ring"></div>
+        <div class="f1-bubbles bubble-field"></div>
+
+        <svg class="f1-waves wave" viewBox="0 0 1920 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,164 C250,112 430,206 720,168 C1010,130 1170,208 1450,160 C1640,128 1800,150 1920,126 L1920,300 L0,300 Z" fill="#132149" opacity=".92"/>
+          <path d="M0,210 C280,158 470,244 760,206 C1050,168 1220,246 1510,198 C1680,170 1840,192 1920,170 L1920,300 L0,300 Z" fill="#1b2a55" opacity=".95"/>
+          <path d="M0,252 C300,206 520,278 820,246 C1120,214 1300,284 1580,240 C1730,218 1860,232 1920,218 L1920,300 L0,300 Z" fill="#2b4d87" opacity=".85"/>
+          <path d="M0,284 C330,252 560,306 880,280 C1200,254 1380,306 1660,276 C1780,264 1880,270 1920,264 L1920,300 L0,300 Z" fill="#83b7a6" opacity=".55"/>
+        </svg>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f1-copy">
+          <div class="f1-kicker kicker" data-layout-allow-overlap>Mili · <em>Miracle Milk</em> · 2015</div>
+          <h1 class="f1-title display">
+            <span class="line"><span id="f1-word1">Meatball</span></span>
+            <span class="line"><span class="f1-submarine" id="f1-word2">Submarine</span></span>
+          </h1>
+          <div class="f1-rule" id="f1-rule"></div>
+          <div class="f1-sub" id="f1-sub"><span>a <b>whale-maid</b> delivery service</span><span>one night under the Atlantic</span></div>
+        </div>
+
+        <div class="f1-seal" id="f1-seal" data-layout-allow-overlap>
+          <div class="n">07</div>
+          <div class="k">DELIVERY<br />DIVISION</div>
+        </div>
+
+        <div class="f1-stamp-wrap" id="f1-stamp">
+          <div class="stamp solid">Under the sea</div>
+        </div>
+
+        <div class="f1-menu card torn-a" id="f1-menu">
+          <div class="k kicker">Tonight's special</div>
+          <div class="t">The Meatball<br />Submarine</div>
+          <div class="d">SOURDOUGH HULL · 12 MEATBALL SEATS<br />DELIVERY: ATLANTIC TRENCH</div>
+        </div>
+
+        <div class="f1-credit kicker">
+          <div class="big label">lyrics &amp; music by Mili</div>
+          <div style="margin-top:8px;color:rgba(242,231,209,.55)">A PAPER-THEATRE FILM · 03:12</div>
+        </div>
+
+        <div class="f1-iris" id="f1-iris"></div>
+        <div class="f1-cover" id="f1-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("01-f1", function (tl, root) {
+          // open from ink
+          tl.fromTo("#f1-cover", { opacity: 1 }, { opacity: 0, duration: 1.6, ease: "power2.out" }, 0.05);
+
+          // plate: slow moonlit push
+          HF.plate(tl, "#f1-plate img", { s0: 1.035, s1: 1.115, x0: 8, x1: -28, y0: 0, y1: -14, dur: 11.3, at: 0 });
+
+          // bubbles + ring
+          HF.bubbles(tl, root, { count: 16, dur: 10.5, min: 7, max: 36, spread: 7.4, opacity: 0.8, z: 11 });
+          tl.fromTo("#f1-ring", { opacity: 0, scale: 0.92 }, { opacity: 0.55, scale: 1.04, duration: 6.5, ease: "sine.out" }, 2.2);
+
+          // title
+          HF.reveal(tl, "#f1-word1", 0.85, { y: 90, dur: 1.15, ease: "power4.out" });
+          HF.reveal(tl, "#f1-word2", 1.35, { y: 90, dur: 1.15, ease: "power4.out" });
+          tl.fromTo("#f1-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power3.inOut" }, 2.25);
+          HF.reveal(tl, "#f1-sub", 2.55, { y: 20, dur: 0.8 });
+          tl.fromTo("#f1-seal", { opacity: 0, scale: 0.7, rotation: 20 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.7, ease: "back.out(1.8)" }, 3.1);
+
+          // downbeat stamp
+          HF.stamp(tl, "#f1-stamp .stamp", 4.2, { rot: -3.5 });
+          tl.fromTo("#f1-menu", { opacity: 0, y: 46, rotation: 2.4 }, { opacity: 1, y: 0, rotation: 1.1, duration: 0.7, ease: "power3.out" }, 7.6);
+          HF.reveal(tl, ".f1-credit", 6.6, { y: 16, dur: 0.7 });
+
+          // little moon pulse on the beat
+          [4.2, 5.63, 7.06, 8.49].forEach(function (t, i) {
+            tl.to("#f1-ring", { scale: 1.07 + i * 0.01, opacity: 0.72, duration: 0.26, ease: "sine.out" }, t);
+            tl.to("#f1-ring", { scale: 1.04, opacity: 0.5, duration: 0.5, ease: "sine.in" }, t + 0.26);
+          });
+
+          // cream iris into the galley
+          tl.fromTo("#f1-iris", { scale: 0 }, { scale: 1, duration: 0.34, ease: "power3.in" }, 10.92);
+        });
+      </script>
+    
+</body>
+</html>

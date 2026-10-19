@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>09-f9 preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="09-f9"] { background: var(--navy-2); }
+        [data-composition-id="09-f9"] .f9-redcover {
+          position: absolute; inset: 0; background: var(--red); z-index: 96; opacity: 1;
+        }
+        [data-composition-id="09-f9"] .f9-wedge {
+          position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 95;
+          background: var(--navy-2);
+          clip-path: polygon(100% 0, 100% 100%, 58% 100%, 74% 74%, 51% 58%, 77% 34%);
+          transform: translateX(100%);
+        }
+        [data-composition-id="09-f9"] .f9-title {
+          position: absolute; left: 84px; top: 74px; z-index: 26;
+        }
+        [data-composition-id="09-f9"] .f9-title .stamp { font-size: 54px; padding: 14px 22px 11px; }
+        [data-composition-id="09-f9"] .f9-screen {
+          position: absolute; left: 84px; bottom: 120px; z-index: 28; opacity: 0;
+          background: var(--paper); color: var(--ink); padding: 12px 18px 10px;
+          font-family: "Fraunces"; font-weight: 600; font-size: 44px; line-height: 1.02;
+          box-shadow: 8px 8px 0 rgba(9,12,28,.35); transform: rotate(-1.4deg);
+        }
+        [data-composition-id="09-f9"] .f9-closing {
+          position: absolute; left: 84px; top: 300px; z-index: 30;
+          text-align: left; opacity: 0; width: 820px;
+        }
+        [data-composition-id="09-f9"] .f9-closing .display {
+          font-size: 150px; color: var(--red); font-style: normal;
+          text-shadow: 8px 8px 0 var(--paper), 15px 15px 0 rgba(9,12,28,.35);
+        }
+        [data-composition-id="09-f9"] .f9-mouths {
+          position: absolute; left: 84px; bottom: 110px; z-index: 28; opacity: 0;
+          background: var(--red); color: var(--paper); padding: 12px 18px 10px;
+          font-family: "Fraunces"; font-weight: 600; font-size: 40px; line-height: 1.05;
+          box-shadow: 8px 8px 0 rgba(9,12,28,.35); max-width: 780px;
+        }
+        [data-composition-id="09-f9"] .f9-bite {
+          position: absolute; z-index: 32; opacity: 0;
+          font-family: "Space Mono"; font-weight: 700; font-size: 78px; letter-spacing: .05em;
+          color: var(--red); text-transform: uppercase; white-space: nowrap;
+          text-shadow: 5px 5px 0 var(--paper), 9px 9px 0 rgba(9,12,28,.35);
+        }
+        [data-composition-id="09-f9"] .f9-bite.b2 {
+          color: var(--mustard); -webkit-text-stroke: 2px var(--ink);
+          text-shadow: 5px 5px 0 var(--ink); font-size: 94px;
+        }
+        [data-composition-id="09-f9"] .f9-fin {
+          position: absolute; z-index: 18; width: 220px; height: 130px;
+          background: var(--navy-2); opacity: 0;
+          clip-path: polygon(0 100%, 36% 22%, 48% 36%, 62% 0, 82% 46%, 100% 100%);
+          filter: drop-shadow(0 0 4px rgba(242,231,209,.55)) drop-shadow(0 12px 16px rgba(0,0,0,.35));
+        }
+        [data-composition-id="09-f9"] .f9-flash {
+          position: absolute; inset: 0; background: var(--red); z-index: 40; opacity: 0;
+        }
+        [data-composition-id="09-f9"] .f9-warning {
+          position: absolute; right: 84px; top: 86px; z-index: 27; opacity: 0;
+          background: var(--mustard); color: var(--ink); padding: 10px 16px 8px;
+          font-family: "Space Mono"; font-weight: 700; font-size: 14px; letter-spacing: .12em;
+          box-shadow: 5px 5px 0 rgba(9,12,28,.28); transform: rotate(3deg);
+        }
+      </style>
+
+      <div id="root" data-composition-id="09-f9" data-width="1920" data-height="1080" data-duration="10.6">
+        <div class="plate" id="f9-plate">
+          <img src="../../assets/img/shark.jpg" alt="Sharks bite the sandwich submarine" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <div class="f9-fin" id="f9-fin1" style="left: -120px; top: 520px;"></div>
+        <div class="f9-fin" id="f9-fin2" style="right: -80px; top: 700px; width: 180px; height: 110px;"></div>
+        <div class="f9-fin" id="f9-fin3" style="left: 420px; bottom: -90px; width: 160px; height: 100px;"></div>
+
+        <div class="f9-warning mono" id="f9-warning">WARNING · 03 SHARKS · CLOSING IN</div>
+        <div class="f9-title" id="f9-title"><div class="stamp solid">Radars went off</div></div>
+        <div class="f9-screen" id="f9-screen" data-layout-allow-overlap>Showing the sharks<br />on the screen</div>
+        <div class="f9-closing" id="f9-closing" data-layout-allow-overlap><div class="display">Closing in</div></div>
+        <div class="f9-mouths" id="f9-mouths">The sharks opened up their mouths</div>
+        <div class="f9-bite" id="f9-bite1" style="left: 110px; top: 588px;">They're biting on me</div>
+        <div class="f9-bite b2" id="f9-bite2" style="left: 250px; top: 748px;">They're biting on me</div>
+
+        <div class="bubble-field" id="f9-bubbles"></div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f9-flash" id="f9-flash"></div>
+        <div class="f9-redcover" id="f9-redcover"></div>
+        <div class="f9-wedge" id="f9-wedge"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("09-f9", function (tl, root) {
+          // red flash from Frame 8
+          tl.fromTo("#f9-redcover", { opacity: 1 }, { opacity: 0, duration: .38, ease: "power2.out" }, 0);
+
+          HF.plate(tl, "#f9-plate img", { s0: 1.07, s1: 1.14, x0: 24, x1: -40, y0: 0, y1: 20, dur: 10.6, at: 0 });
+          HF.bubbles(tl, root, { count: 14, dur: 8.6, min: 8, max: 32, spread: 6.5, opacity: .55, z: 8 });
+
+          // line 1
+          HF.stamp(tl, "#f9-title .stamp", 0.0, { rot: -3, dur: .4 });
+          // line 2
+          tl.fromTo("#f9-screen", { opacity: 0, x: -70, rotation: -2.6 }, { opacity: 1, x: 0, rotation: -1.4, duration: .4, ease: "back.out(1.4)" }, 1.38);
+          // line 3
+          tl.fromTo("#f9-closing", { opacity: 0, scale: 1.35 }, { opacity: 1, scale: 1, duration: .4, ease: "power4.out" }, 3.46);
+          tl.to("#f9-closing", { opacity: 0, scale: .92, duration: .28, ease: "power2.in" }, 4.55);
+          // line 4
+          tl.to("#f9-screen", { opacity: 0, y: -18, duration: .25 }, 4.42);
+          tl.fromTo("#f9-mouths", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .4, ease: "power3.out" }, 4.73);
+          tl.to("#f9-mouths", { rotation: 1.2, duration: .14, yoyo: true, repeat: 1 }, 5.2);
+
+          // fins circle
+          HF.stamp(tl, "#f9-fin1", 4.73, { rot: 0, dur: .35 });
+          HF.stamp(tl, "#f9-fin2", 5.1, { rot: 0, dur: .35 });
+          HF.stamp(tl, "#f9-fin3", 5.5, { rot: 0, dur: .35 });
+          HF.stamp(tl, "#f9-warning", 4.9, { rot: 3, dur: .3 });
+
+          // bite refrains
+          HF.stamp(tl, "#f9-bite1", 6.7, { rot: -2, dur: .32 });
+          HF.stamp(tl, "#f9-bite2", 8.25, { rot: 1.6, dur: .32 });
+
+          // impacts
+          [6.7, 8.25].forEach(function (t, i) {
+            HF.shake(tl, "#f9-plate", t, { amp: 22, beats: 5, step: .05 });
+            HF.flash(tl, "#f9-flash", t, { peak: .7, dur: .25 });
+            tl.to("#f9-plate img", { scale: 1.05, duration: .1, ease: "power2.out" }, t);
+            tl.to("#f9-plate img", { scale: 1.14, duration: .4, ease: "sine.in" }, t + .1);
+          });
+
+          // torn wedge exit
+          tl.fromTo("#f9-wedge", { xPercent: 100 }, { xPercent: 0, duration: .5, ease: "power3.in" }, 10.1);
+        });
+      </script>
+    
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>11-f11 preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="11-f11"] { background: var(--paper); }
+        [data-composition-id="11-f11"] .f11-cover {
+          position: absolute; left: 50%; top: 50%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--paper);
+          z-index: 96; transform: scale(1);
+        }
+        [data-composition-id="11-f11"] .f11-menu { position: absolute; inset: 0; z-index: 10; }
+        [data-composition-id="11-f11"] .f11-board {
+          position: absolute; left: 40px; top: 74px; width: 500px; z-index: 26;
+          padding: 0; transform: rotate(-0.8deg); background: var(--paper);
+          clip-path: polygon(1% 1%, 99% 0, 99.3% 99%, 0.7% 98.6%);
+          box-shadow: 0 26px 40px rgba(16,26,57,.28);
+        }
+        [data-composition-id="11-f11"] .f11-board .bhead {
+          background: var(--ink); color: var(--paper); padding: 14px 22px 12px;
+          display: flex; justify-content: space-between; align-items: baseline;
+        }
+        [data-composition-id="11-f11"] .f11-board .bhead .mono { color: var(--mustard); font-size: 11px; }
+        [data-composition-id="11-f11"] .f11-row {
+          display: flex; justify-content: space-between; align-items: baseline;
+          padding: 7px 22px 6px; border-bottom: 1px solid rgba(22,23,42,.18);
+          font-family: "Fraunces"; font-weight: 600; font-size: 30px; line-height: 1.05;
+          letter-spacing: -.02em; color: var(--ink);
+        }
+        [data-composition-id="11-f11"] .f11-row .p {
+          font-family: "Space Mono"; font-size: 11px; letter-spacing: .06em; color: rgba(22,23,42,.82);
+        }
+        [data-composition-id="11-f11"] .f11-pointer {
+          position: absolute; left: 8px; top: 0; z-index: 3; width: 0; height: 0;
+          border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+          border-left: 15px solid var(--red); opacity: 0;
+        }
+        [data-composition-id="11-f11"] .f11-word {
+          position: absolute; z-index: 31; opacity: 0;
+          font-family: "Fraunces"; font-weight: 900; font-style: italic; line-height: .82;
+          letter-spacing: -.04em; white-space: nowrap;
+          -webkit-text-stroke: 4px var(--paper);
+          text-shadow: 6px 6px 0 rgba(16,26,57,.35), 12px 12px 0 rgba(16,26,57,.2);
+        }
+        [data-composition-id="11-f11"] .f11-word.red { color: var(--red); text-shadow: 6px 6px 0 var(--ink); }
+        [data-composition-id="11-f11"] .f11-word.ink { color: var(--ink); text-shadow: 6px 6px 0 var(--mustard); }
+        [data-composition-id="11-f11"] .f11-word.cream { color: var(--paper); text-shadow: 6px 6px 0 var(--red); }
+        [data-composition-id="11-f11"] .f11-fleetnote {
+          position: absolute; right: 86px; top: 80px; z-index: 26; text-align: right; opacity: 0;
+        }
+        [data-composition-id="11-f11"] .f11-fleetnote .n {
+          font-family: "Fraunces"; font-size: 92px; line-height: .8; color: var(--red);
+        }
+        [data-composition-id="11-f11"] .f11-complete {
+          position: absolute; right: 86px; bottom: 88px; z-index: 30;
+        }
+        [data-composition-id="11-f11"] .f11-race { position: absolute; inset: 0; z-index: 40; opacity: 0; }
+        [data-composition-id="11-f11"] .f11-checker {
+          position: absolute; left: 0; width: 100%; height: 54px; z-index: 44;
+          background: repeating-conic-gradient(var(--ink) 0 25%, var(--paper) 0 50%) 0 0 / 54px 54px;
+        }
+        [data-composition-id="11-f11"] .f11-go {
+          position: absolute; left: 1120px; top: 660px;
+          z-index: 48; text-align: left;
+        }
+        [data-composition-id="11-f11"] .f11-go .display {
+          font-size: 230px; color: var(--paper); font-style: normal;
+          text-shadow: 10px 10px 0 var(--red), 20px 20px 0 rgba(9,12,28,.4);
+        }
+        [data-composition-id="11-f11"] .f11-go .kicker {
+          color: var(--mustard); margin-top: 8px; display: inline-block;
+          background: rgba(16,26,57,.62); padding: 6px 10px 5px;
+        }
+        [data-composition-id="11-f11"] .f11-speed {
+          position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 42; opacity: .6;
+        }
+        [data-composition-id="11-f11"] .f11-racehint {
+          position: absolute; left: 86px; bottom: 90px; z-index: 47; opacity: 0;
+          background: var(--paper); color: var(--ink); padding: 10px 16px 8px;
+          font-family: "Space Mono"; font-size: 14px; letter-spacing: .12em;
+          box-shadow: 6px 6px 0 rgba(9,12,28,.35);
+        }
+        [data-composition-id="11-f11"] .f11-flash {
+          position: absolute; inset: 0; background: var(--paper); z-index: 80; opacity: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="11-f11" data-width="1920" data-height="1080" data-duration="25.0">
+        <div class="f11-menu" id="f11-menu">
+          <div class="plate" id="f11-menu-plate">
+            <img src="../../assets/img/menu.jpg" alt="A parade of sandwich submarines" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="bubble-field" id="f11-bubbles"></div>
+
+          <div class="f11-board" id="f11-board" data-layout-allow-overlap>
+            <div class="bhead"><span class="kicker">TODAY'S FLEET</span><span class="mono">08 SUBMARINES</span></div>
+            <div class="f11-row"><span>Ham</span><span class="p">CLASSIC</span></div>
+            <div class="f11-row"><span>BLT</span><span class="p">CRISPY</span></div>
+            <div class="f11-row"><span>Salami</span><span class="p">SPICY</span></div>
+            <div class="f11-row"><span>Veggie &amp; cheese</span><span class="p">GARDEN</span></div>
+            <div class="f11-row"><span>So many submarines</span><span class="p">FLEET</span></div>
+            <div class="f11-row"><span>Marine marine sub</span><span class="p">DEEP</span></div>
+            <div class="f11-row"><span>Avocado</span><span class="p">GREEN</span></div>
+            <div class="f11-row"><span>Roast beef</span><span class="p">HEARTY</span></div>
+            <div class="f11-row" style="border-bottom:0"><span>And teriyaki</span><span class="p">GLOSSY</span></div>
+            <div class="f11-pointer" id="f11-pointer"></div>
+          </div>
+
+          <div class="f11-fleetnote" id="f11-fleetnote">
+            <div class="kicker" style="color:var(--red)">FRESHLY BAKED</div>
+            <div class="n">08</div>
+            <div class="kicker" style="color:rgba(22,23,42,.6);font-size:11px">SUBMARINES IN PARADE</div>
+          </div>
+
+          <div class="f11-word red" id="f11-w1" style="left: 760px; top: 560px; font-size: 150px;">Ham</div>
+          <div class="f11-word ink" id="f11-w2" style="left: 900px; top: 660px; font-size: 138px;">BLT</div>
+          <div class="f11-word red" id="f11-w3" style="left: 760px; top: 760px; font-size: 126px;">Salami</div>
+          <div class="f11-word cream" id="f11-w4" style="left: 720px; top: 560px; font-size: 92px;">Veggie &amp; cheese</div>
+          <div class="f11-word ink" id="f11-w5" style="left: 680px; top: 660px; font-size: 84px;">So many submarines</div>
+          <div class="f11-word red" id="f11-w6" style="left: 700px; top: 760px; font-size: 82px;">Marine marine sub</div>
+          <div class="f11-word ink" id="f11-w7" style="left: 880px; top: 560px; font-size: 122px;">Avocado</div>
+          <div class="f11-word red" id="f11-w8" style="left: 700px; top: 700px; font-size: 136px;">Roast beef</div>
+          <div class="f11-word cream" id="f11-w9" style="left: 760px; top: 800px; font-size: 100px;">And teriyaki</div>
+
+          <div class="f11-complete" id="f11-complete"><div class="stamp solid">Menu complete</div></div>
+
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f11-race" id="f11-race">
+          <div class="plate" id="f11-race-plate">
+            <img src="../../assets/img/race.jpg" alt="The submarine races other sandwich submarines" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f11-checker" style="top: 0;"></div>
+          <div class="f11-checker" style="bottom: 0;"></div>
+          <svg class="f11-speed" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
+            <g stroke="#f2e7d1" stroke-width="3" opacity=".9">
+              <line x1="0" y1="120" x2="620" y2="80" /><line x1="0" y1="210" x2="480" y2="180" />
+              <line x1="0" y1="880" x2="560" y2="920" /><line x1="0" y1="970" x2="700" y2="1000" />
+              <line x1="1380" y1="70" x2="1920" y2="30" /><line x1="1500" y1="980" x2="1920" y2="1010" />
+            </g>
+          </svg>
+          <div class="f11-go" id="f11-go"><div class="display">GO</div><div class="kicker">FINAL CHORUS · ATLANTIC SPEEDWAY</div></div>
+          <div class="f11-racehint mono" id="f11-racehint">STARTING GRID · LANE 01 · SS MEATBALL</div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f11-flash" id="f11-flash"></div>
+        <div class="f11-cover" id="f11-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("11-f11", function (tl, root) {
+          tl.fromTo("#f11-cover", { scale: 1 }, { scale: 0, duration: .6, ease: "power3.out" }, 0);
+
+          HF.plate(tl, "#f11-menu-plate img", { s0: 1.03, s1: 1.08, x0: 10, x1: -30, y0: 0, y1: 10, dur: 19.8, at: 0 });
+          HF.bubbles(tl, root, { count: 12, dur: 9, min: 6, max: 26, spread: 6, opacity: .55, z: 8 });
+
+          tl.fromTo("#f11-board", { opacity: 0, y: 24, rotation: 1.4 }, { opacity: 1, y: 0, rotation: -0.8, duration: .65, ease: "power3.out" }, .15);
+          HF.reveal(tl, "#f11-fleetnote", .8, { y: 16, dur: .5 });
+
+          // pointer row positions (board top 74 + header ~52 + rows)
+          var rows = HF.all(".f11-row");
+          var board = document.getElementById("f11-board");
+          var tops = rows.map(function (r) { return r.offsetTop + 15; });
+          var times = [11.18, 12.0, 12.7, 13.4, 14.3, 15.37, 16.91, 18.3, 19.29];
+          tl.fromTo("#f11-pointer", { opacity: 0 }, { opacity: 1, duration: .12 }, 11.05);
+          times.forEach(function (t, i) {
+            tl.to("#f11-pointer", { y: tops[i], duration: .12, ease: "power2.out" }, t - .08);
+          });
+
+          // giant words
+          times.forEach(function (t, i) {
+            HF.stamp(tl, "#f11-w" + (i + 1), t, { rot: i % 2 ? 2 : -2, dur: .28 });
+            tl.to("#f11-w" + (i + 1), { opacity: 0, duration: .18 }, t + .62);
+          });
+
+          // "so many" special: fleet note flashes
+          tl.to("#f11-fleetnote .n", { scale: 1.18, duration: .12, yoyo: true, repeat: 1 }, 14.3);
+
+          HF.stamp(tl, "#f11-complete .stamp", 19.55, { rot: -3, dur: .35 });
+
+          // cut to race
+          tl.to("#f11-menu", { opacity: 0, duration: .05 }, 20.0);
+          tl.fromTo("#f11-race", { opacity: 0 }, { opacity: 1, duration: .05 }, 20.0);
+          HF.plate(tl, "#f11-race-plate img", { s0: 1.12, s1: 1.02, x0: -40, x1: 30, y0: 0, y1: 8, dur: 5.0, at: 20.0 });
+          HF.stamp(tl, "#f11-go .display", 20.0, { rot: -3, dur: .34 });
+          HF.reveal(tl, "#f11-racehint", 21.2, { y: 12, dur: .4 });
+          HF.shake(tl, "#f11-race", 20.0, { amp: 16, beats: 4 });
+          
+          // white flash into the final chorus
+          tl.fromTo("#f11-flash", { opacity: 0 }, { opacity: 1, duration: .2, ease: "power2.in" }, 24.72);
+        });
+      </script>
+    
+</body>
+</html>

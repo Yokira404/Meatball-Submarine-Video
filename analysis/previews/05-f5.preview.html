@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>05-f5 preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="05-f5"] { background: var(--navy); }
+        [data-composition-id="05-f5"] .f5-cover {
+          position: absolute; left: 50%; top: 50%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--paper);
+          z-index: 96; transform: scale(1);
+        }
+        [data-composition-id="05-f5"] .f5-fade {
+          position: absolute; inset: 0; background: var(--navy-2); opacity: 0; z-index: 40;
+        }
+        [data-composition-id="05-f5"] .f5-letter {
+          position: absolute; left: 72px; top: 86px; width: 790px; z-index: 24;
+          padding: 26px 34px 28px; transform: rotate(1.1deg);
+        }
+        [data-composition-id="05-f5"] .f5-letter .top {
+          display: flex; justify-content: space-between; align-items: baseline;
+          color: var(--red); border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 14px;
+        }
+        [data-composition-id="05-f5"] .f5-letter .top .mono { font-size: 11px; color: var(--ink); }
+        [data-composition-id="05-f5"] .f5-line {
+          font-family: "Fraunces"; font-weight: 600; font-size: 46px; line-height: 1.03;
+          letter-spacing: -.02em; margin: 0 0 10px; opacity: 0;
+        }
+        [data-composition-id="05-f5"] .f5-line.wait { color: var(--red); font-style: italic; font-size: 58px; }
+        [data-composition-id="05-f5"] .f5-line.small { font-size: 36px; color: var(--navy); }
+        [data-composition-id="05-f5"] .f5-seal {
+          position: absolute; right: 26px; bottom: 22px; width: 74px; height: 74px;
+          border: 2.5px solid var(--red); border-radius: 50%; color: var(--red);
+          display: grid; place-content: center; text-align: center; font-family: "Space Mono";
+          font-weight: 700; font-size: 10px; letter-spacing: .14em; transform: rotate(-11deg);
+          opacity: 0;
+        }
+        [data-composition-id="05-f5"] .f5-seal b { display: block; font-size: 22px; letter-spacing: 0; line-height: 1; }
+        [data-composition-id="05-f5"] .f5-jelly {
+          position: absolute; z-index: 14; opacity: 0;
+        }
+        [data-composition-id="05-f5"] .f5-jelly .dome {
+          width: 100%; height: 58%; border-radius: 50% 50% 42% 42%;
+          background: rgba(131,183,166,.72); border: 2px solid rgba(242,231,209,.75);
+          box-shadow: inset -10px -8px 0 rgba(242,231,209,.18);
+        }
+        [data-composition-id="05-f5"] .f5-jelly i {
+          position: absolute; top: 52%; width: 2px; background: rgba(131,183,166,.85);
+          transform-origin: top center;
+        }
+        [data-composition-id="05-f5"] .f5-jelly i:nth-child(2) { left: 26%; height: 78px; transform: rotate(8deg); }
+        [data-composition-id="05-f5"] .f5-jelly i:nth-child(3) { left: 50%; height: 98px; transform: rotate(-5deg); }
+        [data-composition-id="05-f5"] .f5-jelly i:nth-child(4) { left: 72%; height: 66px; transform: rotate(13deg); }
+        [data-composition-id="05-f5"] .f5-fish {
+          position: absolute; z-index: 12; width: 46px; height: 22px; opacity: 0;
+        }
+        [data-composition-id="05-f5"] .f5-fish:before {
+          content: ""; position: absolute; inset: 0; background: var(--paper);
+          border-radius: 60% 40% 45% 55%; opacity: .8;
+          clip-path: polygon(0 50%, 26% 12%, 68% 22%, 100% 50%, 68% 78%, 26% 88%);
+        }
+      </style>
+
+      <div id="root" data-composition-id="05-f5" data-width="1920" data-height="1080" data-duration="10.95">
+        <div class="plate" id="f5-plate">
+          <img src="../../assets/img/coral.jpg" alt="The sandwich submarine glides through a coral valley" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <div class="f5-jelly" style="left: 900px; top: 596px; width: 110px; height: 130px;" id="jelly1"><div class="dome"></div><i></i><i></i><i></i></div>
+        <div class="f5-jelly" style="left: 1748px; top: 650px; width: 84px; height: 104px;" id="jelly2"><div class="dome"></div><i></i><i></i><i></i></div>
+        <div class="f5-jelly" style="left: 690px; top: 790px; width: 64px; height: 80px;" id="jelly3"><div class="dome"></div><i></i><i></i><i></i></div>
+
+        <div class="f5-fish" style="left: 1180px; top: 180px;"></div>
+        <div class="f5-fish" style="left: 1540px; top: 220px; width: 34px; height: 16px;"></div>
+        <div class="f5-fish" style="left: 900px; top: 300px; width: 30px; height: 14px;"></div>
+
+        <div class="f5-letter card torn-a" id="f5-letter">
+          <div class="top kicker"><span>THE CORAL VALLEY · 46.55</span><span class="mono">LETTER 03</span></div>
+          <p class="f5-line" id="f5-l1">Soaring through the<br />barnacle valleys</p>
+          <p class="f5-line" id="f5-l2">And peachy coral reefs</p>
+          <p class="f5-line wait" id="f5-l3">Wait for me</p>
+          <p class="f5-line small" id="f5-l4">Tonight we'll make dinner a feast</p>
+          <p class="f5-line small" id="f5-l5">Just count it on me</p>
+          <p class="f5-line small" id="f5-l6">Just count it on me</p>
+          <div class="f5-seal"><b>07</b>SEALED</div>
+        </div>
+
+        <div class="bubble-field" id="f5-bubbles"></div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f5-fade" id="f5-fade"></div>
+        <div class="f5-cover" id="f5-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("05-f5", function (tl, root) {
+          tl.fromTo("#f5-cover", { scale: 1 }, { scale: 0, duration: 0.9, ease: "power3.out" }, 0);
+
+          HF.plate(tl, "#f5-plate img", { s0: 1.04, s1: 1.09, x0: 20, x1: -80, y0: 0, y1: 18, dur: 10.95, at: 0 });
+          HF.bubbles(tl, root, { count: 14, dur: 9.6, min: 8, max: 40, spread: 6.8, opacity: .7, z: 11 });
+
+          tl.fromTo("#f5-letter", { opacity: 0, y: 30, rotation: 2.4 }, { opacity: 1, y: 0, rotation: 1.1, duration: 0.75, ease: "power3.out" }, 0.25);
+          HF.reveal(tl, "#f5-l1", 0.0, { y: 26, dur: 1.0, ease: "sine.out" });
+          HF.reveal(tl, "#f5-l2", 2.0, { y: 22, dur: .9, ease: "sine.out" });
+          HF.reveal(tl, "#f5-l3", 4.38, { y: 30, dur: .8, ease: "sine.out" });
+          HF.reveal(tl, "#f5-l4", 5.6, { y: 18, dur: .7 });
+          HF.reveal(tl, "#f5-l5", 7.58, { y: 16, dur: .6 });
+          HF.reveal(tl, "#f5-l6", 8.88, { y: 16, dur: .6 });
+          HF.stamp(tl, "#f5-letter .f5-seal", 6.8, { rot: -11, dur: .5 });
+
+          // jellyfish drift
+          HF.all(".f5-jelly").forEach(function (el, i) {
+            var delay = 0.3 + i * 0.5;
+            tl.fromTo(el, { opacity: 0, y: 30, scale: .8 }, { opacity: .82, y: 0, scale: 1, duration: 1.2, ease: "sine.out" }, delay);
+            tl.to(el, { y: -46 - i * 13, x: (i % 2 ? 24 : -18), rotation: (i % 2 ? 4 : -3), duration: 6.5, ease: "sine.inOut" }, delay + .8);
+          });
+
+          // fish
+          HF.all(".f5-fish").forEach(function (el, i) {
+            tl.fromTo(el, { opacity: 0, x: -60 }, { opacity: .7, x: 0, duration: .8, ease: "sine.out" }, 1.0 + i * .4);
+            tl.to(el, { x: 140, duration: 5.5, ease: "sine.inOut" }, 1.9 + i * .4);
+            tl.to(el, { opacity: 0, duration: .7 }, 6.8 + i * .3);
+          });
+
+          // breathe the card on the two "count on me" lines
+          [7.58, 8.88].forEach(function (t, i) {
+            tl.to("#f5-letter", { rotation: 1.1 + (i ? .28 : -.18), duration: .22, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+          });
+
+          // navy bubble dissolve into the abyss
+          tl.fromTo("#f5-fade", { opacity: 0 }, { opacity: .88, duration: 1.15, ease: "sine.in" }, 9.65);
+          tl.to("#f5-letter", { opacity: 0, y: -20, duration: .5 }, 10.1);
+        });
+      </script>
+    
+</body>
+</html>

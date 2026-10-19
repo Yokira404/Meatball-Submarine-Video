@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meatball Submarine — a paper-theatre film</title>
+    <link rel="stylesheet" href="assets/fonts.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; background: #0a0f1f; overflow: hidden; }
+      body {
+        display: flex; align-items: center; justify-content: center;
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        color: #f2e7d1;
+      }
+      #fit { position: relative; width: 1920px; height: 1080px; transform-origin: center center; }
+      #stage {
+        position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden;
+        background: #101a39; box-shadow: 0 30px 80px rgba(0,0,0,.55);
+      }
+      #stage iframe {
+        position: absolute; inset: 0; width: 1920px; height: 1080px;
+        border: 0; pointer-events: none; background: #101a39;
+      }
+      #vignette {
+        position: absolute; inset: 0; pointer-events: none;
+        box-shadow: inset 0 0 120px rgba(7,11,22,.55);
+      }
+      #ui {
+        position: absolute; left: 0; right: 0; bottom: 0; z-index: 20;
+        padding: 28px 34px 24px;
+        background: linear-gradient(to top, rgba(7,11,22,.9), rgba(7,11,22,0));
+        transition: opacity .4s ease;
+      }
+      body.playing #ui { opacity: 0; }
+      body.playing #ui:hover, body.playing #ui:focus-within { opacity: 1; }
+      #bar {
+        position: relative; height: 10px; background: rgba(242,231,209,.22);
+        cursor: pointer; margin-bottom: 12px;
+      }
+      #bar:before {
+        content: ""; position: absolute; left: 0; top: -5px; right: 0; bottom: -5px;
+      }
+      #fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: #d4462f; }
+      #row { display: flex; align-items: center; gap: 18px; }
+      #play {
+        width: 46px; height: 46px; border-radius: 50%; border: 2px solid #f2e7d1;
+        background: transparent; color: #f2e7d1; cursor: pointer; display: grid; place-items: center;
+        flex: 0 0 46px;
+      }
+      #play:hover { background: rgba(242,231,209,.12); }
+      #play span { display: block; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 14px solid currentColor; margin-left: 3px; }
+      body.playing #play span { width: 13px; height: 16px; border: 0; border-left: 4px solid currentColor; border-right: 4px solid currentColor; margin-left: 0; }
+      #time { font-family: "Space Mono", monospace; font-size: 15px; letter-spacing: .06em; color: #f2e7d1; font-variant-numeric: tabular-nums; }
+      #label { font-family: "Space Mono", monospace; font-size: 12px; letter-spacing: .16em; color: #e7a93d; text-transform: uppercase; }
+      #hint { margin-left: auto; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .12em; color: rgba(242,231,209,.55); text-transform: uppercase; }
+
+      #cover {
+        position: absolute; inset: 0; z-index: 30; display: flex; align-items: center; justify-content: center;
+        background: radial-gradient(90% 80% at 50% 40%, rgba(27,42,85,.4), rgba(7,11,22,.96));
+        transition: opacity .8s ease;
+      }
+      body.started #cover { opacity: 0; pointer-events: none; }
+      #poster {
+        width: 760px; background: #f2e7d1; color: #16172a; padding: 38px 46px 30px;
+        box-shadow: 16px 18px 0 rgba(0,0,0,.4), 0 40px 80px rgba(0,0,0,.5);
+        transform: rotate(-1.4deg); text-align: center;
+        clip-path: polygon(0.4% 2%, 8% 0.4%, 20% 1.6%, 34% 0.3%, 48% 1.5%, 63% 0.4%, 77% 1.4%, 90% 0.5%, 99.4% 1.8%, 99.1% 18%, 99.7% 36%, 99.1% 54%, 99.6% 72%, 99% 88%, 99.3% 98.4%, 86% 99.2%, 71% 98.2%, 56% 99.4%, 41% 98.3%, 26% 99.5%, 12% 98.4%, 1% 99.2%, 0.8% 83%, 0.2% 67%, 0.9% 51%, 0.3% 34%, 1% 18%);
+      }
+      #poster .kick {
+        font-family: "Space Mono", monospace; font-size: 12px; letter-spacing: .18em;
+        color: #d4462f; text-transform: uppercase; margin-bottom: 12px;
+      }
+      #poster h1 {
+        font-family: "Fraunces", Georgia, serif; font-weight: 900; font-style: italic;
+        font-size: 76px; line-height: .82; letter-spacing: -.05em; margin: 0;
+      }
+      #poster h1 span { display: block; }
+      #poster .sub {
+        font-family: "Fraunces", Georgia, serif; font-size: 20px; margin-top: 14px; color: #16172a;
+      }
+      #poster .sub em { color: #d4462f; font-style: italic; }
+      #poster .rule { height: 3px; background: #d4462f; margin: 18px auto 16px; width: 62%; }
+      #poster .small {
+        font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .1em; line-height: 1.7;
+        color: rgba(22,23,42,.66);
+      }
+      #start {
+        margin-top: 22px; display: inline-flex; align-items: center; gap: 12px;
+        background: #d4462f; color: #f2e7d1; border: 0; cursor: pointer;
+        font-family: "Space Mono", monospace; font-size: 13px; letter-spacing: .16em;
+        text-transform: uppercase; padding: 13px 22px 11px; box-shadow: 5px 5px 0 #16172a;
+      }
+      #start:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 #16172a; }
+      #start .tri { width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 11px solid currentColor; }
+      #error {
+        position: absolute; left: 50%; bottom: 20%; transform: translateX(-50%); z-index: 50;
+        background: #d4462f; color: #f2e7d1; font-family: "Space Mono", monospace; font-size: 12px;
+        padding: 10px 16px; display: none; max-width: 900px; line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fit">
+      <div id="stage">
+        <!-- iframes are injected by the player -->
+        <div id="vignette"></div>
+      </div>
+
+      <div id="cover">
+        <div id="poster">
+          <div class="kick">A paper-theatre film · 03:12</div>
+          <h1><span>Meatball</span><span>Submarine</span></h1>
+          <div class="sub">music &amp; lyrics — <em>Mili</em></div>
+          <div class="rule"></div>
+          <div class="small">
+            A WHALE-MAID DELIVERY SERVICE · ONE NIGHT UNDER THE ATLANTIC<br />
+            HEADPHONES RECOMMENDED
+          </div>
+          <button id="start" type="button"><span class="tri"></span>Play the film</button>
+        </div>
+      </div>
+
+      <div id="ui">
+        <div id="bar"><div id="fill"></div></div>
+        <div id="row">
+          <button id="play" type="button" aria-label="Play or pause"><span></span></button>
+          <div id="time">00:00 / 03:11</div>
+          <div id="label">Meatball Submarine</div>
+          <div id="hint">Space · ← → · click the timeline</div>
+        </div>
+      </div>
+      <div id="error"></div>
+    </div>
+
+    <audio id="audio" src="assets/bgm.mp3" preload="auto"></audio>
+    <script>
+      (function () {
+        var frames = [
+          { id: "01-f1", start: 0.000, dur: 11.300, src: "analysis/previews/01-f1.preview.html" },
+          { id: "02-f2", start: 11.300, dur: 11.100, src: "analysis/previews/02-f2.preview.html" },
+          { id: "03-f3", start: 22.400, dur: 11.240, src: "analysis/previews/03-f3.preview.html" },
+          { id: "04-f4", start: 33.640, dur: 12.910, src: "analysis/previews/04-f4.preview.html" },
+          { id: "05-f5", start: 46.550, dur: 10.950, src: "analysis/previews/05-f5.preview.html" },
+          { id: "06-f6", start: 57.500, dur: 11.300, src: "analysis/previews/06-f6.preview.html" },
+          { id: "07-f7", start: 68.800, dur: 10.750, src: "analysis/previews/07-f7.preview.html" },
+          { id: "08-f8", start: 79.550, dur: 13.550, src: "analysis/previews/08-f8.preview.html" },
+          { id: "09-f9", start: 93.100, dur: 10.600, src: "analysis/previews/09-f9.preview.html" },
+          { id: "10-f10", start: 103.700, dur: 22.300, src: "analysis/previews/10-f10.preview.html" },
+          { id: "11-f11", start: 126.000, dur: 25.000, src: "analysis/previews/11-f11.preview.html" },
+          { id: "12-f12", start: 151.000, dur: 12.800, src: "analysis/previews/12-f12.preview.html" },
+          { id: "13-f13", start: 163.800, dur: 27.827, src: "analysis/previews/13-f13.preview.html" }
+        ];
+        var total = 191.627;
+        var stage = document.getElementById("stage");
+        var audio = document.getElementById("audio");
+        var playBtn = document.getElementById("play");
+        var startBtn = document.getElementById("start");
+        var bar = document.getElementById("bar");
+        var fill = document.getElementById("fill");
+        var timeEl = document.getElementById("time");
+        var errorEl = document.getElementById("error");
+        var current = -1;
+        var raf = 0;
+
+        function fit() {
+          var w = window.innerWidth, h = window.innerHeight;
+          var s = Math.min(w / 1920, h / 1080);
+          document.getElementById("fit").style.transform = "scale(" + s + ")";
+        }
+        window.addEventListener("resize", fit);
+        fit();
+
+        function fmt(t) {
+          t = Math.max(0, Math.min(total, t || 0));
+          var m = Math.floor(t / 60);
+          var s = Math.floor(t % 60);
+          return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+        }
+
+        frames.forEach(function (f) {
+          var el = document.createElement("iframe");
+          el.src = f.src;
+          el.setAttribute("title", f.id);
+          el.style.display = "none";
+          el.dataset.frame = f.id;
+          stage.insertBefore(el, document.getElementById("vignette"));
+          f.el = el;
+        });
+
+        function activeIndex(t) {
+          for (var i = frames.length - 1; i >= 0; i--) {
+            if (t >= frames[i].start) return i;
+          }
+          return 0;
+        }
+
+        function seekFrame(i, local) {
+          var f = frames[i];
+          if (!f || !f.el || !f.el.contentWindow) return false;
+          var win = f.el.contentWindow;
+          var tl = win.__timelines && win.__timelines[f.id];
+          if (!tl) return false;
+          tl.pause();
+          tl.seek(Math.max(0, Math.min(f.dur - 0.001, local)));
+          return true;
+        }
+
+        function show(i) {
+          if (current === i) return;
+          if (current >= 0) frames[current].el.style.display = "none";
+          current = i;
+          frames[i].el.style.display = "block";
+          seekFrame(i, audio.currentTime - frames[i].start);
+        }
+
+        function tick() {
+          var t = audio.currentTime;
+          if (!audio.paused) {
+            var i = activeIndex(t);
+            show(i);
+            seekFrame(i, t - frames[i].start);
+          }
+          fill.style.width = (Math.min(1, t / total) * 100) + "%";
+          timeEl.textContent = fmt(t) + " / " + fmt(total);
+          if (t >= total - 0.02) {
+            audio.pause();
+            document.body.classList.remove("playing");
+            return;
+          }
+          raf = requestAnimationFrame(tick);
+        }
+
+        function play() {
+          if (audio.currentTime >= total - 0.1) audio.currentTime = 0;
+          document.body.classList.add("started");
+          document.body.classList.add("playing");
+          audio.play().then(function () {
+            cancelAnimationFrame(raf);
+            tick();
+          }).catch(function (e) {
+            errorEl.style.display = "block";
+            errorEl.textContent = "Playback was blocked: " + e.message + " — click the play button again.";
+          });
+        }
+
+        function toggle() {
+          if (audio.paused) play();
+          else {
+            audio.pause();
+            document.body.classList.remove("playing");
+            cancelAnimationFrame(raf);
+          }
+        }
+
+        playBtn.addEventListener("click", toggle);
+        startBtn.addEventListener("click", play);
+        bar.addEventListener("click", function (e) {
+          var r = bar.getBoundingClientRect();
+          var p = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+          audio.currentTime = p * total;
+          var i = activeIndex(audio.currentTime);
+          show(i);
+          seekFrame(i, audio.currentTime - frames[i].start);
+          fill.style.width = p * 100 + "%";
+          timeEl.textContent = fmt(audio.currentTime) + " / " + fmt(total);
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.code === "Space") { e.preventDefault(); toggle(); }
+          if (e.code === "ArrowRight") { audio.currentTime = Math.min(total, audio.currentTime + 5); }
+          if (e.code === "ArrowLeft") { audio.currentTime = Math.max(0, audio.currentTime - 5); }
+          var i = activeIndex(audio.currentTime);
+          show(i);
+          seekFrame(i, audio.currentTime - frames[i].start);
+        });
+
+        // Wait for iframe timelines; report what is still missing.
+        var tries = 0;
+        var readyTimer = setInterval(function () {
+          var missing = frames.filter(function (f) {
+            return !(f.el.contentWindow && f.el.contentWindow.__timelines && f.el.contentWindow.__timelines[f.id]);
+          });
+          if (!missing.length) {
+            clearInterval(readyTimer);
+            show(0);
+            seekFrame(0, 0);
+            errorEl.style.display = "none";
+          } else if (++tries > 60) {
+            clearInterval(readyTimer);
+            errorEl.style.display = "block";
+            errorEl.textContent = "Still loading " + missing.length + " scene(s). Serve this folder over HTTP (node serve.cjs) — file:// blocks the scenes.";
+          }
+        }, 250);
+      })();
+    </script>
+  </body>
+</html>

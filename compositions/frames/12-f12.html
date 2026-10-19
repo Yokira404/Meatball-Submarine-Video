@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>12 — So cheer for me</title></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="12-f12"] { background: var(--navy); }
+        [data-composition-id="12-f12"] .f12-cover {
+          position: absolute; left: 50%; top: 50%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--paper);
+          z-index: 96; transform: scale(1);
+        }
+        [data-composition-id="12-f12"] .f12-race { position: absolute; inset: 0; z-index: 10; }
+        [data-composition-id="12-f12"] .f12-checker {
+          position: absolute; left: 0; top: 0; width: 100%; height: 40px; z-index: 14;
+          background: repeating-conic-gradient(var(--ink) 0 25%, var(--paper) 0 50%) 0 0 / 40px 40px;
+          opacity: .9;
+        }
+        [data-composition-id="12-f12"] .f12-so {
+          position: absolute; right: 80px; top: 72px; z-index: 26; text-align: right;
+          font-family: "Fraunces"; font-weight: 900; font-style: italic; font-size: 142px;
+          line-height: .84; letter-spacing: -.05em; color: var(--ink);
+          background: var(--paper); padding: 8px 22px 0; border-bottom: 8px solid var(--red);
+          box-shadow: 10px 10px 0 rgba(9,12,28,.3);
+          opacity: 0;
+        }
+        [data-composition-id="12-f12"] .f12-strips {
+          position: absolute; right: 80px; top: 300px; z-index: 25; width: 820px; text-align: right;
+        }
+        [data-composition-id="12-f12"] .f12-strip {
+          display: inline-block; background: var(--paper); color: var(--ink);
+          font-family: "Fraunces"; font-weight: 600; font-size: 42px; line-height: 1.02;
+          padding: 9px 16px 8px; margin-bottom: 12px; box-shadow: 6px 6px 0 rgba(9,12,28,.3);
+          opacity: 0;
+        }
+        [data-composition-id="12-f12"] .f12-strip.red { background: var(--red); color: var(--paper); }
+        [data-composition-id="12-f12"] .f12-speedo {
+          position: absolute; left: 78px; top: 178px; z-index: 28;
+          background: var(--paper); color: var(--ink); padding: 14px 18px 12px; width: 360px;
+          box-shadow: 9px 9px 0 rgba(9,12,28,.35); transform: rotate(-1.4deg); opacity: 0;
+        }
+        [data-composition-id="12-f12"] .f12-speedo .row {
+          display: flex; justify-content: space-between; align-items: baseline;
+        }
+        [data-composition-id="12-f12"] .f12-speedo .num {
+          font-family: "Space Mono"; font-weight: 700; font-size: 54px; color: var(--red); line-height: 1;
+        }
+        [data-composition-id="12-f12"] .f12-bar { height: 14px; background: var(--ink); margin-top: 10px; position: relative; }
+        [data-composition-id="12-f12"] .f12-bar i {
+          position: absolute; left: 0; top: 0; height: 100%; width: 0; background: var(--red); display: block;
+        }
+        [data-composition-id="12-f12"] .f12-feast {
+          position: absolute; left: 50%; bottom: 110px; transform: translateX(-50%);
+          z-index: 30;
+        }
+        [data-composition-id="12-f12"] .f12-feast .stamp { font-size: 46px; padding: 16px 26px 13px; }
+        [data-composition-id="12-f12"] .f12-racehint {
+          position: absolute; left: 82px; top: 78px; z-index: 25; color: var(--ink); opacity: 0;
+          background: rgba(242,231,209,.92); padding: 9px 13px 7px;
+          box-shadow: 5px 5px 0 rgba(9,12,28,.25);
+        }
+        [data-composition-id="12-f12"] .f12-racehint .mono { color: rgba(22,23,42,.7); font-size: 11px; margin-top: 4px; }
+
+        [data-composition-id="12-f12"] .f12-portrait { position: absolute; inset: 0; z-index: 40; opacity: 0; }
+        [data-composition-id="12-f12"] .f12-portrait .plate img { object-position: 70% 50%; }
+        [data-composition-id="12-f12"] .f12-cheer {
+          position: absolute; left: 76px; top: 300px; z-index: 46; opacity: 0;
+        }
+        [data-composition-id="12-f12"] .f12-cheer .l1 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 92px; line-height: .96;
+          letter-spacing: -.035em; color: var(--red); text-shadow: 3px 3px 0 var(--ink);
+        }
+        [data-composition-id="12-f12"] .f12-cheer .l2 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 72px; line-height: 1.0;
+          letter-spacing: -.03em; color: var(--ink); margin-top: 18px; opacity: 0;
+        }
+        [data-composition-id="12-f12"] .f12-cheer .mono { margin-top: 20px; color: rgba(22,23,42,.6); font-size: 12px; }
+        [data-composition-id="12-f12"] .f12-spot {
+          position: absolute; inset: 0; z-index: 44; pointer-events: none;
+          background: radial-gradient(circle at 68% 42%, transparent 24%, rgba(16,26,57,.16) 70%);
+          opacity: 0;
+        }
+        [data-composition-id="12-f12"] .f12-fade {
+          position: absolute; inset: 0; background: var(--navy-2); z-index: 80; opacity: 0;
+        }
+        [data-composition-id="12-f12"] .f12-flash {
+          position: absolute; inset: 0; background: var(--paper); z-index: 90; opacity: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="12-f12" data-width="1920" data-height="1080" data-duration="12.8">
+        <div class="f12-race" id="f12-race">
+          <div class="plate" id="f12-race-plate">
+            <img src="../../assets/img/race.jpg" alt="The final race" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f12-checker"></div>
+          <div class="f12-racehint kicker" id="f12-racehint">
+            <span style="color:var(--red)">FINAL CHORUS</span>
+            <div class="mono">LANE 01 · SS MEATBALL · 08.4 KNOTS</div>
+          </div>
+
+          <div class="f12-so" id="f12-so" data-layout-allow-overlap>So I leap</div>
+          <div class="f12-strips" data-layout-allow-overlap>
+            <div class="f12-strip" id="f12-st1">And race against<br />those submarines</div>
+            <div class="f12-strip red" id="f12-st2">To show you what<br />I've achieved</div>
+          </div>
+
+          <div class="f12-speedo" id="f12-speedo" data-layout-ignore>
+            <div class="row" data-layout-allow-overlap><span class="kicker">INCREASED SPEED</span><span class="num" id="f12-knots">08.4</span></div>
+            <div class="f12-bar"><i id="f12-bar"></i></div>
+          </div>
+
+          <div class="bubble-field" id="f12-bubbles"></div>
+          <div class="confetti-field" id="f12-confetti"></div>
+
+          <div class="f12-feast" id="f12-feast"><div class="stamp solid-mustard">Tonight we'll make dinner a feast</div></div>
+
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f12-portrait" id="f12-portrait">
+          <div class="plate" id="f12-portrait-plate">
+            <img src="../../assets/img/portrait.jpg" alt="A close portrait of the whale-maid" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f12-cheer" id="f12-cheer">
+            <div class="l1">So cheer for me,<br />please</div>
+            <div class="l2" id="f12-cheer2">Just cheer for me, please</div>
+            <div class="mono">I'LL BE BACK TOMORROW</div>
+          </div>
+          <div class="f12-spot" id="f12-spot"></div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f12-flash" id="f12-flash"></div>
+        <div class="f12-fade" id="f12-fade"></div>
+        <div class="f12-cover" id="f12-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("12-f12", function (tl, root) {
+          tl.fromTo("#f12-cover", { scale: 1 }, { scale: 0, duration: .55, ease: "power3.out" }, 0);
+
+          HF.plate(tl, "#f12-race-plate img", { s0: 1.1, s1: 1.02, x0: -30, x1: 24, y0: 0, y1: 8, dur: 8.85, at: 0 });
+          HF.bubbles(tl, root, { count: 12, dur: 7, min: 7, max: 26, spread: 5, opacity: .5, z: 8 });
+
+          HF.stamp(tl, "#f12-so", 0.0, { rot: -2.5, dur: .45 });
+          HF.reveal(tl, "#f12-racehint", .35, { y: 12, dur: .4 });
+          tl.fromTo("#f12-st1", { opacity: 0, x: 70, rotation: 1.6 }, { opacity: 1, x: 0, rotation: 0.5, duration: .4, ease: "back.out(1.4)" }, 1.16);
+          tl.fromTo("#f12-st2", { opacity: 0, x: 70, rotation: 1.6 }, { opacity: 1, x: 0, rotation: -0.4, duration: .4, ease: "back.out(1.4)" }, 3.35);
+
+          tl.fromTo("#f12-speedo", { opacity: 0, x: -40, rotation: -2.6 }, { opacity: 1, x: 0, rotation: -1.4, duration: .45, ease: "power3.out" }, 5.55);
+          tl.fromTo("#f12-bar", { width: "0%" }, { width: "92%", duration: 1.2, ease: "power2.out" }, 5.55);
+          HF.shake(tl, "#f12-race", 5.55, { amp: 12, beats: 3 });
+
+          HF.stamp(tl, "#f12-feast .stamp", 6.85, { rot: -2, dur: .4 });
+          HF.confetti(tl, root, { count: 26, at: 6.85, spread: 1.4, host: "#f12-confetti" });
+
+          // cut to the portrait
+          tl.to("#f12-race", { opacity: 0, duration: .05 }, 8.85);
+          tl.fromTo("#f12-portrait", { opacity: 0 }, { opacity: 1, duration: .05 }, 8.85);
+          HF.plate(tl, "#f12-portrait-plate img", { s0: 1.02, s1: 1.055, x0: 8, x1: -10, y0: 0, y1: 6, dur: 3.95, at: 8.85 });
+          tl.fromTo("#f12-cheer", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: .55, ease: "power3.out" }, 8.92);
+          tl.fromTo("#f12-cheer2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out" }, 10.4);
+          tl.fromTo("#f12-spot", { opacity: 0 }, { opacity: 1, duration: .8 }, 11.5);
+
+          // fade into the choice
+          tl.fromTo("#f12-fade", { opacity: 0 }, { opacity: .82, duration: 1.1, ease: "sine.in" }, 12.0);
+        });
+      </script>
+    </template>
+  </body>
+</html>

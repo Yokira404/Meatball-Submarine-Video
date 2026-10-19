@@ -1,0 +1,10 @@
+# Large generated outputs are kept on disk but not in the source checkpoint.
+renders/*.mp4
+renders/render.log
+
+# HyperFrames runtime cache / review artifacts
+.hyperframes/
+
+# OS / editor noise
+Thumbs.db
+.DS_Store

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>03 — Drydock</title></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="03-f3"] { background: var(--paper); }
+        [data-composition-id="03-f3"] .f3-cover {
+          position: absolute; left: 50%; top: 50%; width: 2600px; height: 2600px;
+          margin: -1300px 0 0 -1300px; border-radius: 50%; background: var(--paper);
+          z-index: 95; transform: scale(1);
+        }
+        [data-composition-id="03-f3"] .f3-hatch {
+          position: absolute; left: 50%; top: 56%; width: 2700px; height: 2700px;
+          margin: -1350px 0 0 -1350px; border-radius: 50%; background: var(--navy-2);
+          z-index: 94; transform: scale(0);
+        }
+        [data-composition-id="03-f3"] .f3-spec {
+          position: absolute; left: 76px; top: 82px; width: 690px; z-index: 24;
+          padding: 26px 32px 24px; transform: rotate(-1.4deg);
+        }
+        [data-composition-id="03-f3"] .f3-spec .head {
+          display: flex; justify-content: space-between; align-items: baseline;
+          color: var(--red); border-bottom: 2px solid var(--ink); padding-bottom: 9px; margin-bottom: 14px;
+        }
+        [data-composition-id="03-f3"] .f3-spec .head .mono { font-size: 12px; color: var(--ink); }
+        [data-composition-id="03-f3"] .f3-spec h2 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 62px; line-height: .98;
+          letter-spacing: -.03em; margin: 0;
+        }
+        [data-composition-id="03-f3"] .f3-spec h2 em { color: var(--red); font-style: italic; }
+        [data-composition-id="03-f3"] .f3-spec .line2 {
+          font-family: "Fraunces"; font-size: 42px; font-weight: 600; color: var(--navy);
+          margin-top: 10px; line-height: 1.02;
+        }
+        [data-composition-id="03-f3"] .f3-spec .line3 {
+          margin-top: 12px; display: flex; align-items: center; gap: 12px;
+          font-family: "Space Mono"; font-size: 16px; letter-spacing: .1em; color: var(--ink);
+        }
+        [data-composition-id="03-f3"] .f3-spec .line3 b { font-size: 28px; color: var(--red); }
+        [data-composition-id="03-f3"] .f3-seats {
+          display: grid; grid-template-columns: repeat(6, 18px); gap: 8px; margin-top: 10px;
+        }
+        [data-composition-id="03-f3"] .f3-seat {
+          width: 18px; height: 18px; border-radius: 50%; background: var(--red);
+          border: 2px solid var(--ink); opacity: 0; transform: scale(0);
+        }
+        [data-composition-id="03-f3"] .f3-delivery {
+          position: absolute; left: 770px; bottom: 86px; z-index: 30;
+        }
+        [data-composition-id="03-f3"] .f3-delivery .stamp { font-size: 42px; padding: 16px 26px 13px; }
+        [data-composition-id="03-f3"] .f3-butter {
+          position: absolute; z-index: 18; background: var(--mustard);
+          border: 2px solid rgba(22,23,42,.35); border-radius: 55% 55% 45% 45%;
+          box-shadow: 2px 3px 0 rgba(22,23,42,.15);
+        }
+        [data-composition-id="03-f3"] .f3-lead {
+          position: absolute; z-index: 23; height: 2px; background: var(--ink);
+          transform-origin: left center;
+        }
+        [data-composition-id="03-f3"] .f3-label {
+          position: absolute; z-index: 24; padding: 7px 12px 5px; background: var(--paper);
+          border: 2px solid var(--ink); font-family: "Space Mono"; font-weight: 700;
+          font-size: 14px; letter-spacing: .12em; box-shadow: 3px 3px 0 rgba(22,23,42,.2);
+          opacity: 0;
+        }
+        [data-composition-id="03-f3"] .f3-fish-note {
+          position: absolute; right: 88px; top: 104px; z-index: 24; text-align: right; opacity: 0;
+          background: rgba(242, 231, 209, 0.82); padding: 8px 12px 6px;
+          box-shadow: 4px 4px 0 rgba(22,23,42,.12);
+        }
+        [data-composition-id="03-f3"] .f3-fish-note .mono { font-size: 12px; color: rgba(22,23,42,.65); margin-top: 4px; }
+      </style>
+
+      <div id="root" data-composition-id="03-f3" data-width="1920" data-height="1080" data-duration="11.24">
+        <div class="plate" id="f3-plate">
+          <img src="../../assets/img/drydock.jpg" alt="The whale-maid buttering a giant sourdough submarine in an undersea drydock" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <div class="f3-butter" style="left: 760px; top: 250px; width: 18px; height: 26px;"></div>
+        <div class="f3-butter" style="left: 792px; top: 236px; width: 13px; height: 19px;"></div>
+        <div class="f3-butter" style="left: 820px; top: 268px; width: 22px; height: 30px;"></div>
+        <div class="f3-butter" style="left: 742px; top: 282px; width: 12px; height: 17px;"></div>
+        <div class="f3-butter" style="left: 860px; top: 246px; width: 16px; height: 22px;"></div>
+
+        <div class="f3-label" id="f3-lbl1" style="left: 906px; top: 330px;">MARINARA BEDDING</div>
+        <div class="f3-label" id="f3-lbl2" style="left: 1010px; top: 476px;">12 MEATBALL SEATS</div>
+        <div class="f3-lead" id="f3-lead1" style="left: 902px; top: 344px; width: 130px; transform: rotate(16deg);"></div>
+
+        <div class="f3-spec card torn-b" id="f3-spec">
+          <div class="head kicker"><span>DRYDOCK 03 · SS MEATBALL</span><span class="mono">HULL: SOURDOUGH</span></div>
+          <h2>Butter up the<br /><em>sourdough</em><br />submarine</h2>
+          <div class="line2" id="f3-line2">Marinara flavoured bedding</div>
+          <div class="line3" id="f3-line3">Meatball seats <b>x 12</b></div>
+          <div class="f3-seats" id="f3-seats"></div>
+        </div>
+
+        <div class="f3-delivery" id="f3-delivery"><div class="stamp solid">Delivery: under the sea</div></div>
+
+        <div class="f3-fish-note kicker" id="f3-fish-note">
+          <span style="color:var(--red)">CREW: 41 FISH · 1 WHALE</span>
+          <div class="mono">UNION RULES: NO EATING THE HULL</div>
+        </div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f3-hatch" id="f3-hatch"></div>
+        <div class="f3-cover" id="f3-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("03-f3", function (tl, root) {
+          tl.fromTo("#f3-cover", { scale: 1 }, { scale: 0, duration: 0.58, ease: "power3.out" }, 0);
+
+          HF.plate(tl, "#f3-plate img", { s0: 1.06, s1: 1.11, x0: 46, x1: -42, y0: -10, y1: 10, dur: 11.24, at: 0 });
+
+          // spec card
+          tl.fromTo("#f3-spec", { opacity: 0, x: -54, y: 16, rotation: -2.6 }, { opacity: 1, x: 0, y: 0, rotation: -1.4, duration: 0.62, ease: "power3.out" }, 0.18);
+          HF.reveal(tl, "#f3-line2", 2.85, { y: 22, dur: 0.55 });
+          HF.reveal(tl, "#f3-line3", 5.9, { y: 18, dur: 0.5 });
+          HF.stamp(tl, "#f3-lbl1", 3.1, { rot: -3 });
+          HF.stamp(tl, "#f3-lbl2", 6.15, { rot: 3 });
+          tl.fromTo("#f3-lead1", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, 3.0);
+
+          // 12 meatball seats
+          var seats = document.getElementById("f3-seats");
+          for (var i = 0; i < 12; i++) {
+            var s = document.createElement("div");
+            s.className = "f3-seat";
+            seats.appendChild(s);
+          }
+          HF.all(".f3-seat").forEach(function (el, i) {
+            tl.to(el, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, 5.9 + i * 0.075);
+          });
+
+          // butter drips
+          HF.all(".f3-butter").forEach(function (el, i) {
+            tl.fromTo(el, { y: -18, opacity: 0 }, { y: 150 + i * 22, opacity: 0.95, duration: 1.25 + i * 0.12, ease: "power1.in" }, 0.6 + i * 0.32);
+            tl.to(el, { opacity: 0, duration: 0.25 }, 1.9 + i * 0.32);
+          });
+
+          HF.reveal(tl, "#f3-fish-note", 7.2, { y: 12, dur: 0.5 });
+
+          // delivery stamp + hatch
+          HF.stamp(tl, "#f3-delivery .stamp", 9.07, { rot: -2.5, dur: 0.5 });
+          tl.to("#f3-spec", { rotation: -1.9, duration: 0.16, yoyo: true, repeat: 1 }, 9.07);
+
+          tl.fromTo("#f3-hatch", { scale: 0, transformOrigin: "50% 56%" }, { scale: 1, duration: 0.9, ease: "power3.in" }, 10.2);
+        });
+      </script>
+    </template>
+  </body>
+</html>
