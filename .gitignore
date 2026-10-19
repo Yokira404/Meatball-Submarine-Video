@@ -9,6 +9,10 @@ renders/render.log
 analysis/*.png
 analysis/*.jpg
 
+# Raw generator downloads (the processed plates live in assets/img)
+assets/raw/
+assets/raw2/
+
 # OS / editor noise
 Thumbs.db
 .DS_Store

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>13a2-f13a2 preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="13a2-f13a2"] { background: var(--navy-2); }
+        [data-composition-id="13a2-f13a2"] .f13x-untouched { position: absolute; inset: 0; z-index: 10; }
+        [data-composition-id="13a2-f13a2"] .f13x-tomorrow { position: absolute; inset: 0; z-index: 20; opacity: 0; }
+        [data-composition-id="13a2-f13a2"] .f13x-card {
+          position: absolute; left: 70px; top: 84px; width: 760px; z-index: 26;
+          padding: 22px 28px 18px; transform: rotate(-1.1deg);
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-card .head {
+          display: flex; justify-content: space-between; border-bottom: 2px solid var(--ink);
+          padding-bottom: 7px; margin-bottom: 10px;
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-card .head .mono { font-size: 11px; color: rgba(22,23,42,.7); }
+        [data-composition-id="13a2-f13a2"] .f13x-card .l1 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 44px; line-height: 1.02;
+          letter-spacing: -.03em; color: var(--ink);
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-card .l2 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 44px; line-height: 1.02;
+          letter-spacing: -.03em; color: var(--red); margin-top: 3px;
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-card .mono { margin-top: 9px; color: rgba(22,23,42,.6); font-size: 10px; }
+        [data-composition-id="13a2-f13a2"] .f13x-tomo-card {
+          position: absolute; left: 72px; bottom: 66px; width: 840px; z-index: 28;
+          padding: 20px 26px 16px; transform: rotate(-1deg); opacity: 0;
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-tomo-card .l {
+          font-family: "Fraunces"; font-weight: 600; font-size: 58px; line-height: 1.0;
+          letter-spacing: -.035em; color: var(--ink); opacity: 0; margin-bottom: 6px;
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-tomo-card .l.red { color: var(--red); font-style: italic; }
+        [data-composition-id="13a2-f13a2"] .f13x-tomo-card .l.sm { font-size: 44px; }
+        [data-composition-id="13a2-f13a2"] .f13x-seeyou {
+          position: absolute; right: 88px; bottom: 88px; z-index: 29;
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-warm {
+          position: absolute; inset: 0; z-index: 30; background: var(--peach); opacity: 0; pointer-events: none;
+        }
+        [data-composition-id="13a2-f13a2"] .f13x-flash {
+          position: absolute; inset: 0; z-index: 60; background: var(--paper); opacity: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="13a2-f13a2" data-width="1920" data-height="1080" data-duration="10.31">
+        <div class="f13x-untouched" id="f13x-untouched">
+          <div class="plate" id="f13x-untouched-plate">
+            <img src="../../assets/img/untouched.jpg" alt="The untouched meatball submarine on a silver tray" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f13x-card card torn-a" id="f13x-card">
+            <div class="head kicker"><span>ORDER 07 · TABLE 04</span><span class="mono">SHE STILL HAS THE MEATBALL ONE</span></div>
+            <div class="l1">You've decided on the</div>
+            <div class="l2">roast beef submarine</div>
+            <div class="mono">STEAM RISING · GETTING COLD</div>
+          </div>
+          <div class="bubble-field" id="f13x-bubbles"></div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f13x-tomorrow" id="f13x-tomorrow">
+          <div class="plate" id="f13x-tomorrow-plate">
+            <img src="../../assets/img/tomorrow.jpg" alt="The whale-maid waves goodbye in the sunrise" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f13x-tomo-card card torn-b" id="f13x-tomo-card">
+            <div class="l" id="f13x-t1">Tomorrow I'll come back again</div>
+            <div class="l red" id="f13x-t2">So wait for me, please</div>
+            <div class="l sm" id="f13x-t3">Just wait for me, please</div>
+          </div>
+          <div class="f13x-seeyou" id="f13x-seeyou"><div class="stamp ink">See you tomorrow</div></div>
+          <div class="bubble-field" id="f13x-tomo-bubbles"></div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f13x-warm" id="f13x-warm"></div>
+        <div class="f13x-flash" id="f13x-flash"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("13a2-f13a2", function (tl, root) {
+          HF.plate(tl, "#f13x-untouched-plate img", { s0: 1.04, s1: 1.10, x0: 8, x1: -18, y0: 0, y1: 10, dur: 3.41, at: 0 });
+          HF.bubbles(tl, root, { count: 8, dur: 3, min: 6, max: 20, spread: 2, opacity: .4, z: 8, host: "#f13x-bubbles" });
+          tl.fromTo("#f13x-card", { opacity: 0, y: 22, rotation: -2.2 }, { opacity: 1, y: 0, rotation: -1.1, duration: .55, ease: "power3.out" }, .05);
+
+          // dissolve to the sunrise
+          tl.to("#f13x-untouched", { opacity: 0, duration: .75, ease: "sine.inOut" }, 3.30);
+          tl.fromTo("#f13x-tomorrow", { opacity: 0 }, { opacity: 1, duration: .75, ease: "sine.inOut" }, 3.30);
+          tl.fromTo("#f13x-warm", { opacity: 0 }, { opacity: .55, duration: .22, yoyo: true, repeat: 1, ease: "sine.inOut" }, 3.35);
+          HF.plate(tl, "#f13x-tomorrow-plate img", { s0: 1.03, s1: 1.09, x0: 10, x1: -20, y0: 0, y1: 8, dur: 6.9, at: 3.41 });
+          HF.bubbles(tl, root, { count: 9, dur: 6, min: 6, max: 20, spread: 5, opacity: .45, z: 8, host: "#f13x-tomo-bubbles" });
+
+          tl.fromTo("#f13x-tomo-card", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out" }, 3.48);
+          HF.reveal(tl, "#f13x-t1", 3.41, { y: 22, dur: .55 });
+          HF.reveal(tl, "#f13x-t2", 5.61, { y: 20, dur: .5 });
+          HF.reveal(tl, "#f13x-t3", 7.11, { y: 16, dur: .45 });
+          HF.stamp(tl, "#f13x-seeyou .stamp", 8.0, { rot: -2.5, dur: .38 });
+
+          tl.fromTo("#f13x-flash", { opacity: 0 }, { opacity: 1, duration: .5, ease: "power2.in" }, 9.72);
+        });
+      </script>
+    
+</body>
+</html>

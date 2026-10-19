@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>04b-f4b preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="04b-f4b"] { background: #0b1228; }
+        [data-composition-id="04b-f4b"] .f4b-cover {
+          position: absolute; left: 50%; top: 50%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--navy-2);
+          z-index: 96; transform: scale(1);
+        }
+        [data-composition-id="04b-f4b"] .f4b-iris {
+          position: absolute; left: 50%; top: 50%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--paper);
+          z-index: 95; transform: scale(0);
+        }
+        [data-composition-id="04b-f4b"] .f4b-deep {
+          position: absolute; left: 0; top: 104px; z-index: 28; width: 880px; height: 132px;
+          background: var(--navy-2); color: var(--paper);
+          display: flex; align-items: center; padding: 0 84px;
+          box-shadow: 9px 9px 0 rgba(0,0,0,.28); opacity: 0;
+        }
+        [data-composition-id="04b-f4b"] .f4b-deep .display { font-size: 98px; font-style: normal; font-weight: 600; line-height: 1; }
+        [data-composition-id="04b-f4b"] .f4b-deep .mono { margin-left: auto; font-size: 11px; color: var(--seafoam); text-align: right; line-height: 1.5; }
+        [data-composition-id="04b-f4b"] .f4b-strip {
+          position: absolute; left: 82px; top: 606px; z-index: 28;
+          background: var(--mustard); color: var(--ink); padding: 10px 18px 9px;
+          font-family: "Fraunces"; font-weight: 600; font-size: 44px; line-height: 1.02;
+          letter-spacing: -.025em; box-shadow: 7px 7px 0 rgba(0,0,0,.35); opacity: 0;
+        }
+        [data-composition-id="04b-f4b"] .f4b-just {
+          position: absolute; z-index: 30; opacity: 0;
+          font-size: 36px; padding: 11px 17px 9px;
+        }
+        [data-composition-id="04b-f4b"] .f4b-depth {
+          position: absolute; right: 92px; top: 92px; z-index: 25; text-align: right;
+          color: var(--paper); opacity: 0;
+        }
+        [data-composition-id="04b-f4b"] .f4b-depth .mono { font-size: 12px; color: var(--seafoam); margin-top: 5px; }
+        [data-composition-id="04b-f4b"] .f4b-jelly {
+          position: absolute; z-index: 14; width: 90px; height: 110px; opacity: 0;
+        }
+        [data-composition-id="04b-f4b"] .f4b-jelly .dome {
+          width: 100%; height: 58%; border-radius: 50% 50% 42% 42%;
+          background: rgba(131,183,166,.72); border: 2px solid rgba(242,231,209,.7);
+        }
+        [data-composition-id="04b-f4b"] .f4b-jelly i {
+          position: absolute; top: 52%; width: 2px; background: rgba(131,183,166,.8);
+          transform-origin: top center; display: block;
+        }
+        [data-composition-id="04b-f4b"] .f4b-jelly i:nth-child(2) { left: 26%; height: 66px; transform: rotate(8deg); }
+        [data-composition-id="04b-f4b"] .f4b-jelly i:nth-child(3) { left: 50%; height: 84px; transform: rotate(-5deg); }
+        [data-composition-id="04b-f4b"] .f4b-jelly i:nth-child(4) { left: 72%; height: 58px; transform: rotate(12deg); }
+      </style>
+
+      <div id="root" data-composition-id="04b-f4b" data-width="1920" data-height="1080" data-duration="7.27">
+        <div class="plate" id="f4b-plate">
+          <img src="../../assets/img/descent.jpg" alt="The sandwich submarine sinks into the abyss" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <div class="bubble-field" id="f4b-bubbles"></div>
+        <div class="f4b-jelly" style="left: 1280px; top: 700px;"><div class="dome"></div><i></i><i></i><i></i></div>
+        <div class="f4b-jelly" style="left: 1720px; top: 300px; width: 66px; height: 82px;"><div class="dome"></div><i></i><i></i><i></i></div>
+        <div class="f4b-jelly" style="left: 820px; top: 850px; width: 54px; height: 68px;"><div class="dome"></div><i></i><i></i><i></i></div>
+
+        <div class="f4b-deep" id="f4b-deep">
+          <div class="display">Going deep</div>
+          <div class="mono">DEPTH<br />01840 M</div>
+        </div>
+
+        <div class="f4b-strip" id="f4b-strip">Tonight we'll make<br />dinner a feast</div>
+        <div class="f4b-just stamp solid" id="f4b-just1" style="left: 90px; top: 780px;">Just count it on me</div>
+        <div class="f4b-just stamp ink" id="f4b-just2" style="left: 470px; top: 860px;">Just count it on me</div>
+        <div class="f4b-depth kicker" id="f4b-depth">
+          <div class="mono">CURRENT · 02.1 KNOTS · HEADING 245°</div>
+        </div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f4b-iris" id="f4b-iris"></div>
+        <div class="f4b-cover" id="f4b-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("04b-f4b", function (tl, root) {
+          tl.fromTo("#f4b-cover", { scale: 1 }, { scale: 0, duration: .40, ease: "power3.out" }, 0);
+          HF.plate(tl, "#f4b-plate img", { s0: 1.06, s1: 1.13, x0: 10, x1: -34, y0: 0, y1: 16, dur: 7.27, at: 0 });
+          HF.bubbles(tl, root, { count: 14, dur: 6.4, min: 8, max: 38, spread: 4.8, opacity: .7, z: 10 });
+
+          tl.fromTo("#f4b-deep", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: .42, ease: "power3.out" }, .05);
+          HF.stamp(tl, "#f4b-strip", 1.43, { rot: -2, dur: .40 });
+          HF.stamp(tl, "#f4b-just1", 3.42, { rot: -3, dur: .38 });
+          HF.stamp(tl, "#f4b-just2", 4.83, { rot: 2.4, dur: .38 });
+          HF.reveal(tl, "#f4b-depth", .75, { y: 10, dur: .5 });
+
+          HF.all(".f4b-jelly").forEach(function (el, i) {
+            tl.fromTo(el, { opacity: 0, y: 20, scale: .8 }, { opacity: .8, y: 0, scale: 1, duration: 1.0, ease: "sine.out" }, .3 + i * .35);
+            tl.to(el, { y: -50 - i * 12, x: (i % 2 ? 20 : -16), rotation: (i % 2 ? 4 : -3), duration: 5.2, ease: "sine.inOut" }, .9 + i * .35);
+          });
+
+          [3.42, 4.83].forEach(function (t) {
+            tl.to("#f4b-plate img", { scale: 1.11, duration: .12, ease: "power2.out" }, t);
+            tl.to("#f4b-plate img", { scale: 1.13, duration: .35, ease: "sine.in" }, t + .12);
+          });
+
+          tl.fromTo("#f4b-iris", { scale: 0 }, { scale: 1, duration: .72, ease: "power3.in" }, 6.42);
+        });
+      </script>
+    
+</body>
+</html>

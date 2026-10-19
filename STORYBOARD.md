@@ -102,13 +102,13 @@ menu parade → race → the choice → tomorrow → curtain.
 ## Frame 4 — f4
 
 - src: compositions/frames/04-f4.html
-- duration: 12.910s
-- span_sec: [33.640, 46.550]
+- duration: 5.640s
+- span_sec: [33.640, 39.280]
 - pacing: beat_cut
 - mood: [hype, playful, cinematic]
 - feel: chorus 1 — full-band lift, line changes on every vocal phrase, the sub surfs the Atlantic
 - visual: `launch` plate. Fast dolly-out, parallax bubbles and paper waves, speed lines on the
-  kick. Lyrics on the left as cream strips; “Just count it on me” lands twice. Cream iris.
+  kick. Lyrics on the left as cream strips. Ends on “To show you what I've achieved”.
 
 ### Groups
 
@@ -117,9 +117,25 @@ menu parade → race → the choice → tomorrow → curtain.
   - free_design: { dominant_system: "chorus paper-strip stack over a launch plate", primitives: ["plate-dolly-out", "strip-slam", "speed-lines", "bubble-parallax"], density_topology: "one strip per phrase, stacked" }
   - anchors: [33.64, 35.04, 37.26]
   - copy: ["So I leap", "And swim against Atlantic stream", "To show you what I've achieved"]
-- **g2** — free_design
+
+## Frame 4b — f4b
+
+- src: compositions/frames/04b-f4b.html
+- duration: 7.270s
+- span_sec: [39.280, 46.550]
+- pacing: beat_cut
+- mood: [cinematic, hype, dreamy]
+- feel: “Going deep” — a new descent plate, then the feast refrain and two stamps
+- visual: NEW `descent` plate (generated). The sandwich sub sinks through the abyss, seen
+  from above, the whale-maid in the glowing porthole, jellyfish and sonar rings. “Going deep”
+  navy band; mustard “Tonight we'll make dinner a feast”; two “Just count it on me” stamps.
+  Cream iris into the coral valley.
+
+### Groups
+
+- **g1** — free_design
   - span_sec: [39.280, 46.550]
-  - free_design: { dominant_system: "deep-dive colour shift into a feast stamp", primitives: ["navy-wash", "stamp-land", "wave-foreground", "porthole-iris"], density_topology: "one wash, two stamps, one transition" }
+  - free_design: { dominant_system: "descent plate with a deep-water colour grade", primitives: ["plate-sink", "navy-band", "strip-slam", "stamp-land", "cream-iris"], density_topology: "one held descent, two stamps" }
   - anchors: [39.28, 40.71, 42.70, 44.11, 46.20]
   - copy: ["Going deep", "Tonight we'll make dinner a feast", "Just count it on me", "Just count it on me"]
 
@@ -312,14 +328,13 @@ menu parade → race → the choice → tomorrow → curtain.
 ## Frame 14 — f11a
 
 - src: compositions/frames/11a-f11a.html
-- duration: 20.000s
-- span_sec: [126.000, 146.000]
+- duration: 11.180s
+- span_sec: [126.000, 137.180]
 - pacing: beat_cut
 - mood: [playful, hype, elegant]
-- feel: instrumental fleet reveal → rapid menu litany
-- visual: `menu` plate. Fleet reveal with a menu counter, then the giant menu board highlights
-  each submarine: HAM / BLT / SALAMI / VEGGIE & CHEESE / MARINE MARINE SUB / AVOCADO /
-  ROAST BEEF / TERIYAKI. “Menu complete” at 149.55 (local 19.55).
+- feel: instrumental fleet reveal with a menu counter
+- visual: `menu` plate. Wide fleet reveal; the menu board and “08 submarines” counter fill in.
+  Hands off to the new close-up menu board at 137.18.
 
 ### Groups
 
@@ -328,9 +343,24 @@ menu parade → race → the choice → tomorrow → curtain.
   - free_design: { dominant_system: "slow fleet reveal with a menu counter", primitives: ["plate-drift", "row-highlight", "counter-tick", "steam"], density_topology: "quiet accumulation" }
   - anchors: [126.00, 130.00, 134.00, 137.18]
   - copy: ["THE FLEET", "08 SUBMARINES", "ALL FRESHLY BAKED"]
-- **g2** — free_design
+
+## Frame 14b — f11a2
+
+- src: compositions/frames/11a2-f11a2.html
+- duration: 8.820s
+- span_sec: [137.180, 146.000]
+- pacing: beat_cut
+- mood: [playful, hype, elegant]
+- feel: rapid menu litany — one giant item stamp per lyric, accelerating
+- visual: NEW `menuboard` plate (generated). The whale-maid presents a giant illustrated menu;
+  HAM / BLT / SALAMI / VEGGIE & CHEESE / SO MANY SUBMARINES / MARINE MARINE SUB / AVOCADO /
+  ROAST BEEF / TERIYAKI slam on in red, ink and cream. “Menu complete” and a checkered wipe.
+
+### Groups
+
+- **g1** — free_design
   - span_sec: [137.180, 146.000]
-  - free_design: { dominant_system: "rapid menu-board stamps over the fleet", primitives: ["menu-stamp", "row-flash", "colour-chip", "hard-cut"], density_topology: "one item per lyric, accelerating" }
+  - free_design: { dominant_system: "giant menu-item supers over a close menu-board plate", primitives: ["menu-stamp", "row-flash", "colour-chip", "checker-wipe"], density_topology: "one item per lyric, accelerating" }
   - anchors: [137.18, 138.00, 138.70, 139.40, 140.30, 141.37, 142.91, 144.30, 145.29]
   - copy: ["Ham", "BLT", "Salami", "Veggie & cheese", "So many submarines", "Marine marine sub", "Avocado", "Roast beef", "And teriyaki"]
 
@@ -356,13 +386,13 @@ menu parade → race → the choice → tomorrow → curtain.
 ## Frame 16 — f12
 
 - src: compositions/frames/12-f12.html
-- duration: 12.800s
-- span_sec: [151.000, 163.800]
+- duration: 6.850s
+- span_sec: [151.000, 157.850]
 - pacing: beat_cut
 - mood: [hype, playful, cinematic]
-- feel: final chorus — race and plea; maximum forward motion, then a direct-address portrait
-- visual: `race` plate for the race; `portrait` for the last four seconds. “So I leap” paper
-  banner; speed strips; “Tonight we'll make dinner a feast”; two “cheer for me” lines.
+- feel: final-chorus race — maximum forward motion, one line per phrase
+- visual: `race` plate. “So I leap” paper banner; speed strips; speedometer; the race against
+  the roast beef and BLT submarines. Ends as “Tonight…” begins.
 
 ### Groups
 
@@ -371,31 +401,72 @@ menu parade → race → the choice → tomorrow → curtain.
   - free_design: { dominant_system: "race-poster supers with speed lines", primitives: ["speed-line-burst", "plate-push", "type-slam", "checker-wipe"], density_topology: "one line per phrase, accelerating" }
   - anchors: [151.00, 152.16, 154.35, 156.55]
   - copy: ["So I leap", "And race against those submarines", "To show you what I've achieved", "Increased speed"]
-- **g2** — free_design
-  - span_sec: [157.850, 163.800]
-  - free_design: { dominant_system: "finish-line burst into direct address", primitives: ["confetti-burst", "spotlight", "freeze", "stamp-land"], density_topology: "burst, then hold" }
-  - anchors: [157.85, 159.92, 161.40, 163.60]
-  - copy: ["Tonight we'll make dinner a feast", "So cheer for me please", "Just cheer for me please"]
 
-## Frame 17 — f13a
+## Frame 16b — f12b
 
-- src: compositions/frames/13a-f13a.html
-- duration: 12.200s
-- span_sec: [163.800, 176.000]
-- pacing: phrase_flow
-- mood: [elegant, dark, warm, dreamy]
-- feel: the choice and the promise — slow, tender, no hard stamps
-- visual: `choice` plate for “Instead of looking at me / You've decided on the roast beef
-  submarine”; the heart creases. Crossfade to `tomorrow` at 169.1: “Tomorrow I'll come back
-  again / So wait for me please / Just wait for me please”.
+- src: compositions/frames/12b-f12b.html
+- duration: 5.950s
+- span_sec: [157.850, 163.800]
+- pacing: beat_cut
+- mood: [hype, playful, cinematic]
+- feel: finish line burst, then the direct-address portrait
+- visual: NEW `finish` plate (generated) for 2.1s — the sub bursts through a checkered banner,
+  confetti, the whale-maid cheering. Hard cut to `portrait` for “So cheer for me, please /
+  Just cheer for me, please”. Navy fade.
 
 ### Groups
 
 - **g1** — free_design
-  - span_sec: [163.800, 169.100]
-  - free_design: { dominant_system: "scale-contrast banquet tableau", primitives: ["spotlight", "heart-crease", "plate-hold", "soft-dissolve"], density_topology: "two long lines, one heart" }
-  - anchors: [163.80, 165.69, 167.50]
-  - copy: ["Instead of looking at me", "You've decided on the roast beef submarine"]
+  - span_sec: [157.850, 160.000]
+  - free_design: { dominant_system: "finish-line burst with checkered paper borders", primitives: ["confetti-burst", "checker-wipe", "stamp-land", "hard-cut"], density_topology: "one burst, one cut" }
+  - anchors: [157.85, 159.92]
+  - copy: ["Tonight we'll make dinner a feast"]
+- **g2** — free_design
+  - span_sec: [160.000, 163.800]
+  - free_design: { dominant_system: "direct-address portrait", primitives: ["spotlight", "soft-rise", "freeze"], density_topology: "one held look" }
+  - anchors: [159.92, 161.40, 163.60]
+  - copy: ["So cheer for me please", "Just cheer for me please"]
+
+## Frame 17 — f13a
+
+- src: compositions/frames/13a-f13a.html
+- duration: 1.890s
+- span_sec: [163.800, 165.690]
+- pacing: phrase_flow
+- mood: [elegant, dark, warm]
+- feel: the first beat of the choice — a held wide shot
+- visual: `choice` plate. “Instead of looking at me” as the giant leviathan leans toward the
+  roast beef submarine. Hard cut to the untouched close-up at 165.69.
+
+### Groups
+
+- **g1** — free_design
+  - span_sec: [163.800, 165.690]
+  - free_design: { dominant_system: "scale-contrast banquet tableau", primitives: ["spotlight", "plate-hold", "soft-rise"], density_topology: "one long line" }
+  - anchors: [163.80, 165.69]
+  - copy: ["Instead of looking at me"]
+
+## Frame 17b — f13a2
+
+- src: compositions/frames/13a2-f13a2.html
+- duration: 10.310s
+- span_sec: [165.690, 176.000]
+- pacing: phrase_flow
+- mood: [elegant, dark, warm, dreamy]
+- feel: the untouched sub, then the sunrise promise
+- visual: NEW `untouched` plate (generated): the meatball sub on a silver tray, the leviathan
+  shadow and roast beef behind, the maid's hand at the edge, a creased paper heart. “You've
+  decided on the roast beef submarine” on a paper card. Crossfade to `tomorrow` at 169.1:
+  “Tomorrow I'll come back again / So wait for me please / Just wait for me please”.
+  Peach flash into the curtain call.
+
+### Groups
+
+- **g1** — free_design
+  - span_sec: [165.690, 169.100]
+  - free_design: { dominant_system: "untouched-sub close-up with a paper order card", primitives: ["spotlight", "plate-push", "heart-crease", "soft-dissolve"], density_topology: "one long line, one held object" }
+  - anchors: [165.69, 167.20, 169.10]
+  - copy: ["You've decided on the roast beef submarine"]
 - **g2** — free_design
   - span_sec: [169.100, 176.000]
   - free_design: { dominant_system: "sunrise promise with a paper letter", primitives: ["sunrise-dissolve", "soft-rise", "bubble-drift", "stamp-land"], density_topology: "one line per bar" }

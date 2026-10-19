@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>11a2 — The menu</title></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="11a2-f11a2"] { background: var(--paper); }
+        [data-composition-id="11a2-f11a2"] .f11x-cover {
+          position: absolute; left: 50%; top: 50%; width: 2800px; height: 2800px;
+          margin: -1400px 0 0 -1400px; border-radius: 50%; background: var(--paper);
+          z-index: 96; transform: scale(1);
+        }
+        [data-composition-id="11a2-f11a2"] .f11x-header {
+          position: absolute; left: 0; top: 64px; z-index: 28; height: 62px;
+          background: var(--red); color: var(--paper); display: flex; align-items: center;
+          padding: 0 84px 0 40px; box-shadow: 6px 6px 0 rgba(22,23,42,.22); opacity: 0;
+        }
+        [data-composition-id="11a2-f11a2"] .f11x-header .kicker { font-size: 17px; }
+        [data-composition-id="11a2-f11a2"] .f11x-ticket {
+          position: absolute; right: 84px; top: 72px; z-index: 28; padding: 12px 16px 10px;
+          background: var(--paper); box-shadow: 6px 6px 0 rgba(22,23,42,.22);
+          transform: rotate(2deg); opacity: 0;
+        }
+        [data-composition-id="11a2-f11a2"] .f11x-ticket .mono { font-size: 11px; margin-top: 4px; color: rgba(22,23,42,.65); }
+        [data-composition-id="11a2-f11a2"] .f11x-word {
+          position: absolute; z-index: 33; opacity: 0;
+          font-family: "Fraunces"; font-weight: 900; font-style: italic; line-height: .82;
+          letter-spacing: -.045em; white-space: nowrap;
+          -webkit-text-stroke: 5px var(--paper);
+          text-shadow: 9px 9px 0 rgba(22,23,42,.42), 17px 17px 0 rgba(22,23,42,.18);
+        }
+        [data-composition-id="11a2-f11a2"] .f11x-word.red { color: var(--red); }
+        [data-composition-id="11a2-f11a2"] .f11x-word.ink { color: var(--ink); }
+        [data-composition-id="11a2-f11a2"] .f11x-word.mustard { color: var(--mustard); }
+        [data-composition-id="11a2-f11a2"] .f11x-word.cream { color: var(--paper); text-shadow: 7px 7px 0 var(--red), 14px 14px 0 rgba(22,23,42,.25); }
+        [data-composition-id="11a2-f11a2"] .f11x-complete {
+          position: absolute; right: 92px; bottom: 96px; z-index: 35; opacity: 0;
+        }
+        [data-composition-id="11a2-f11a2"] .f11x-complete .stamp { font-size: 40px; padding: 14px 20px 11px; }
+        [data-composition-id="11a2-f11a2"] .f11x-checker {
+          position: absolute; left: 0; width: 100%; height: 58px; z-index: 60;
+          background: repeating-conic-gradient(var(--ink) 0 25%, var(--paper) 0 50%) 0 0 / 58px 58px;
+          transform: scaleX(0);
+        }
+        [data-composition-id="11a2-f11a2"] .f11x-checker.top { top: 0; transform-origin: left center; }
+        [data-composition-id="11a2-f11a2"] .f11x-checker.bottom { bottom: 0; transform-origin: right center; }
+        [data-composition-id="11a2-f11a2"] .f11x-pointer {
+          position: absolute; left: 660px; top: 560px; z-index: 30; width: 0; height: 0;
+          border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+          border-left: 18px solid var(--red); opacity: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="11a2-f11a2" data-width="1920" data-height="1080" data-duration="8.82">
+        <div class="plate" id="f11x-plate">
+          <img src="../../assets/img/menuboard.jpg" alt="The whale-maid presents the submarine sandwich menu" />
+          <div class="paper-tint"></div>
+        </div>
+
+        <div class="f11x-header" id="f11x-header"><div class="kicker">Today's menu · eight submarines · all baked at 2,040 m</div></div>
+        <div class="f11x-ticket card torn-a" id="f11x-ticket">
+          <div class="kicker" style="color:var(--red)">ORDER 09</div>
+          <div class="mono">TO GO · PLEASE HURRY</div>
+        </div>
+        <div class="f11x-pointer" id="f11x-pointer"></div>
+
+        <div class="f11x-word red" id="f11x-w1" style="left: 780px; top: 540px; font-size: 168px;">Ham</div>
+        <div class="f11x-word ink" id="f11x-w2" style="left: 900px; top: 650px; font-size: 156px;">BLT</div>
+        <div class="f11x-word red" id="f11x-w3" style="left: 760px; top: 760px; font-size: 140px;">Salami</div>
+        <div class="f11x-word cream" id="f11x-w4" style="left: 700px; top: 540px; font-size: 104px;">Veggie &amp; cheese</div>
+        <div class="f11x-word ink" id="f11x-w5" style="left: 680px; top: 650px; font-size: 96px;">So many submarines</div>
+        <div class="f11x-word red" id="f11x-w6" style="left: 700px; top: 760px; font-size: 94px;">Marine marine sub</div>
+        <div class="f11x-word ink" id="f11x-w7" style="left: 880px; top: 540px; font-size: 138px;">Avocado</div>
+        <div class="f11x-word red" id="f11x-w8" style="left: 700px; top: 690px; font-size: 150px;">Roast beef</div>
+        <div class="f11x-word mustard" id="f11x-w9" style="left: 760px; top: 800px; font-size: 116px;">And teriyaki</div>
+
+        <div class="f11x-complete" id="f11x-complete"><div class="stamp solid">Menu complete</div></div>
+
+        <div class="vignette"></div>
+        <div class="halftone"></div>
+        <div class="grain"></div>
+        <div class="edge-shadow"></div>
+
+        <div class="f11x-checker top" id="f11x-checker1"></div>
+        <div class="f11x-checker bottom" id="f11x-checker2"></div>
+        <div class="f11x-cover" id="f11x-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("11a2-f11a2", function (tl, root) {
+          tl.fromTo("#f11x-cover", { scale: 1 }, { scale: 0, duration: .16, ease: "power3.out" }, 0);
+          HF.plate(tl, "#f11x-plate img", { s0: 1.03, s1: 1.09, x0: 6, x1: -20, y0: 0, y1: 10, dur: 8.82, at: 0 });
+
+          tl.fromTo("#f11x-header", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: .40, ease: "power3.out" }, .08);
+          tl.fromTo("#f11x-ticket", { opacity: 0, y: 16, rotation: 4 }, { opacity: 1, y: 0, rotation: 2, duration: .40, ease: "power3.out" }, .25);
+          tl.fromTo("#f11x-pointer", { opacity: 0 }, { opacity: 1, duration: .2 }, .4);
+
+          var times = [0.00, 0.82, 1.52, 2.22, 3.12, 4.19, 5.73, 7.12, 8.11];
+          times.forEach(function (t, i) {
+            HF.stamp(tl, "#f11x-w" + (i + 1), t, { rot: i % 2 ? 2 : -2, dur: .26 });
+            tl.to("#f11x-w" + (i + 1), { opacity: 0, duration: .15 }, t + .76);
+            tl.to("#f11x-pointer", { y: 0 + i * 24, duration: .12, ease: "power2.out" }, t);
+          });
+
+          HF.stamp(tl, "#f11x-complete .stamp", 8.30, { rot: -3, dur: .32 });
+          tl.fromTo("#f11x-checker1", { scaleX: 0 }, { scaleX: 1, duration: .30, ease: "power2.in" }, 8.42);
+          tl.fromTo("#f11x-checker2", { scaleX: 0 }, { scaleX: 1, duration: .30, ease: "power2.in" }, 8.46);
+        });
+      </script>
+    </template>
+  </body>
+</html>

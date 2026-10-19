@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>12b-f12b preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="12b-f12b"] { background: var(--navy); }
+        [data-composition-id="12b-f12b"] .f12x-finish { position: absolute; inset: 0; z-index: 10; }
+        [data-composition-id="12b-f12b"] .f12x-portrait { position: absolute; inset: 0; z-index: 20; opacity: 0; }
+        [data-composition-id="12b-f12b"] .f12x-portrait .plate img { object-position: 70% 50%; }
+        [data-composition-id="12b-f12b"] .f12x-checker {
+          position: absolute; left: 0; width: 100%; height: 40px; z-index: 14;
+          background: repeating-conic-gradient(var(--ink) 0 25%, var(--paper) 0 50%) 0 0 / 40px 40px;
+          opacity: .92;
+        }
+        [data-composition-id="12b-f12b"] .f12x-feast {
+          position: absolute; left: 50%; bottom: 104px; transform: translateX(-50%);
+          z-index: 26;
+        }
+        [data-composition-id="12b-f12b"] .f12x-feast .stamp { font-size: 44px; padding: 15px 24px 12px; }
+        [data-composition-id="12b-f12b"] .f12x-finishchip {
+          position: absolute; left: 82px; top: 82px; z-index: 26; opacity: 0;
+          background: var(--paper); padding: 10px 14px 8px; box-shadow: 5px 5px 0 rgba(9,12,28,.3);
+          transform: rotate(-2deg);
+        }
+        [data-composition-id="12b-f12b"] .f12x-finishchip .mono { font-size: 10px; margin-top: 4px; color: rgba(22,23,42,.65); }
+        [data-composition-id="12b-f12b"] .f12x-cheer {
+          position: absolute; left: 76px; top: 292px; z-index: 28; opacity: 0;
+        }
+        [data-composition-id="12b-f12b"] .f12x-cheer .l1 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 88px; line-height: .96;
+          letter-spacing: -.035em; color: var(--red); text-shadow: 3px 3px 0 var(--ink);
+        }
+        [data-composition-id="12b-f12b"] .f12x-cheer .l2 {
+          font-family: "Fraunces"; font-weight: 600; font-size: 66px; line-height: 1.0;
+          letter-spacing: -.03em; color: var(--ink); margin-top: 16px; opacity: 0;
+        }
+        [data-composition-id="12b-f12b"] .f12x-cheer .mono { margin-top: 18px; color: rgba(22,23,42,.62); font-size: 11px; }
+        [data-composition-id="12b-f12b"] .f12x-flash {
+          position: absolute; inset: 0; background: var(--paper); z-index: 40; opacity: 0;
+        }
+        [data-composition-id="12b-f12b"] .f12x-fade {
+          position: absolute; inset: 0; background: var(--navy-2); z-index: 60; opacity: 0;
+        }
+        [data-composition-id="12b-f12b"] .f12x-cover {
+          position: absolute; inset: 0; background: var(--paper); z-index: 96; opacity: 1;
+        }
+      </style>
+
+      <div id="root" data-composition-id="12b-f12b" data-width="1920" data-height="1080" data-duration="5.95">
+        <div class="f12x-finish" id="f12x-finish">
+          <div class="plate" id="f12x-finish-plate">
+            <img src="../../assets/img/finish.jpg" alt="The submarine bursts through the finish line" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f12x-checker" style="top: 0;"></div>
+          <div class="f12x-checker" style="bottom: 0;"></div>
+          <div class="confetti-field" id="f12x-confetti"></div>
+          <div class="f12x-finishchip" id="f12x-finishchip"><div class="kicker" style="color:var(--red)">FINISH LINE</div><div class="mono">ATLANTIC SPEEDWAY · LANE 01</div></div>
+          <div class="f12x-feast" id="f12x-feast"><div class="stamp solid-mustard">Tonight we'll make dinner a feast</div></div>
+          <div class="bubble-field" id="f12x-bubbles"></div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f12x-portrait" id="f12x-portrait">
+          <div class="plate" id="f12x-portrait-plate">
+            <img src="../../assets/img/portrait.jpg" alt="A close portrait of the whale-maid" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f12x-cheer" id="f12x-cheer">
+            <div class="l1">So cheer for me,<br />please</div>
+            <div class="l2" id="f12x-cheer2">Just cheer for me, please</div>
+            <div class="mono">I'LL BE BACK TOMORROW</div>
+          </div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f12x-flash" id="f12x-flash"></div>
+        <div class="f12x-fade" id="f12x-fade"></div>
+        <div class="f12x-cover" id="f12x-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("12b-f12b", function (tl, root) {
+          tl.fromTo("#f12x-cover", { opacity: 1 }, { opacity: 0, duration: .45, ease: "power2.out" }, 0);
+          HF.plate(tl, "#f12x-finish-plate img", { s0: 1.06, s1: 1.13, x0: 16, x1: -28, y0: 0, y1: 12, dur: 2.1, at: 0 });
+          HF.bubbles(tl, root, { count: 10, dur: 2, min: 6, max: 24, spread: 1.2, opacity: .5, z: 8, host: "#f12x-bubbles" });
+          tl.fromTo("#f12x-finishchip", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .35, ease: "power3.out" }, .0);
+          HF.stamp(tl, "#f12x-feast .stamp", 0.0, { rot: -2, dur: .38 });
+          HF.confetti(tl, root, { count: 26, at: .05, spread: 1.3, host: "#f12x-confetti" });
+
+          // hard cut to the portrait
+          tl.fromTo("#f12x-flash", { opacity: 0 }, { opacity: .8, duration: .06, ease: "none" }, 2.02);
+          tl.to("#f12x-flash", { opacity: 0, duration: .14, ease: "power1.in" }, 2.08);
+          tl.set("#f12x-finish", { display: "none" }, 2.10);
+          tl.set("#f12x-portrait", { opacity: 1 }, 2.10);
+          HF.plate(tl, "#f12x-portrait-plate img", { s0: 1.02, s1: 1.055, x0: 8, x1: -10, y0: 0, y1: 6, dur: 3.85, at: 2.10 });
+          tl.fromTo("#f12x-cheer", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .50, ease: "power3.out" }, 2.10);
+          tl.fromTo("#f12x-cheer2", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .45, ease: "power3.out" }, 3.55);
+
+          tl.fromTo("#f12x-fade", { opacity: 0 }, { opacity: .86, duration: .8, ease: "sine.in" }, 5.05);
+        });
+      </script>
+    
+</body>
+</html>
