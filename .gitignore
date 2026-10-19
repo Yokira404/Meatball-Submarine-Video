@@ -19,3 +19,7 @@ Thumbs.db
 
 # transient render transaction locks
 renders/.meatball-submarine.hf-transaction-*
+
+# nested review stills
+analysis/**/*.png
+analysis/**/*.jpg
