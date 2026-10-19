@@ -1,114 +1,109 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<script src="../../assets/gsap.min.js"></script>
-<title>10-f10 preview</title>
-<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
-</head>
-<body>
-
+  <head><meta charset="UTF-8" /><title>10 — Invincible</title></head>
+  <body>
+    <template>
       <link rel="stylesheet" href="../../assets/fonts.css" />
       <link rel="stylesheet" href="../../assets/base.css" />
       <style>
-        [data-composition-id="10-f10"] { background: var(--navy-2); }
-        [data-composition-id="10-f10"] .f10-cover {
+        [data-composition-id="10c-f10c"] { background: var(--navy-2); }
+        [data-composition-id="10c-f10c"] .f10-cover {
           position: absolute; inset: 0; z-index: 97; background: var(--navy-2);
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
-        [data-composition-id="10-f10"] .f10-scene { position: absolute; inset: 0; }
-        [data-composition-id="10-f10"] .f10-pierce { opacity: 0; z-index: 20; }
-        [data-composition-id="10-f10"] .f10-inv { opacity: 0; z-index: 30; }
-        [data-composition-id="10-f10"] .f10-damagecard {
+        [data-composition-id="10c-f10c"] .f10-scene { position: absolute; inset: 0; }
+        [data-composition-id="10c-f10c"] .f10-pierce { opacity: 0; z-index: 20; }
+        [data-composition-id="10c-f10c"] .f10-inv { opacity: 0; z-index: 30; }
+        [data-composition-id="10c-f10c"] .f10-damagecard {
           position: absolute; right: 80px; top: 80px; z-index: 28; width: 420px;
           padding: 20px 24px 18px; transform: rotate(1.4deg);
         }
-        [data-composition-id="10-f10"] .f10-damagecard .head {
+        [data-composition-id="10c-f10c"] .f10-damagecard .head {
           border-bottom: 2px solid var(--ink); padding-bottom: 7px; margin-bottom: 10px;
           display: flex; justify-content: space-between;
         }
-        [data-composition-id="10-f10"] .f10-dmgrow {
+        [data-composition-id="10c-f10c"] .f10-dmgrow {
           display: flex; justify-content: space-between; align-items: baseline;
           font-family: "Space Mono"; font-size: 16px; letter-spacing: .06em; padding: 5px 0;
           border-bottom: 1px dashed rgba(22,23,42,.3);
         }
-        [data-composition-id="10-f10"] .f10-dmgrow b { color: var(--red); font-size: 18px; }
-        [data-composition-id="10-f10"] .f10-lyric {
+        [data-composition-id="10c-f10c"] .f10-dmgrow b { color: var(--red); font-size: 18px; }
+        [data-composition-id="10c-f10c"] .f10-lyric {
           position: absolute; left: 78px; z-index: 29;
           background: var(--paper); color: var(--ink); padding: 10px 18px 8px;
           font-family: "Fraunces"; font-weight: 600; font-size: 46px; line-height: 1.02;
           letter-spacing: -.02em; box-shadow: 7px 7px 0 rgba(9,12,28,.32); opacity: 0;
         }
-        [data-composition-id="10-f10"] .f10-big {
+        [data-composition-id="10c-f10c"] .f10-big {
           position: absolute; left: 78px; z-index: 31;
           font-family: "Fraunces"; font-weight: 600; font-size: 92px; line-height: .92;
           letter-spacing: -.035em; color: var(--ink);
           text-shadow: 5px 5px 0 var(--paper), 11px 11px 0 var(--red);
           opacity: 0;
         }
-        [data-composition-id="10-f10"] .f10-stamp {
+        [data-composition-id="10c-f10c"] .f10-stamp {
           position: absolute; z-index: 32;
         }
-        [data-composition-id="10-f10"] .f10-stamp .stamp { font-size: 42px; padding: 12px 20px 10px; }
-        [data-composition-id="10-f10"] .f10-blob {
+        [data-composition-id="10c-f10c"] .f10-stamp .stamp { font-size: 42px; padding: 12px 20px 10px; }
+        [data-composition-id="10c-f10c"] .f10-blob {
           position: absolute; z-index: 26; opacity: 0;
           display: grid; place-content: center; text-align: center;
           font-family: "Space Mono"; font-weight: 700; font-size: 13px; letter-spacing: .08em;
         }
-        [data-composition-id="10-f10"] .f10-blob b { display: block; font-size: 19px; letter-spacing: .04em; }
-        [data-composition-id="10-f10"] .f10-spear {
+        [data-composition-id="10c-f10c"] .f10-blob b { display: block; font-size: 19px; letter-spacing: .04em; }
+        [data-composition-id="10c-f10c"] .f10-spear {
           position: absolute; z-index: 22; height: 3px; background: var(--paper);
           transform-origin: left center; opacity: 0;
           box-shadow: 0 0 0 1px rgba(22,23,42,.25);
         }
-        [data-composition-id="10-f10"] .f10-spear:after {
+        [data-composition-id="10c-f10c"] .f10-spear:after {
           content: ""; position: absolute; right: -13px; top: -6px;
           border-top: 8px solid transparent; border-bottom: 8px solid transparent;
           border-left: 15px solid var(--paper);
         }
-        [data-composition-id="10-f10"] .f10-pierceword {
+        [data-composition-id="10c-f10c"] .f10-pierceword {
           position: absolute; z-index: 31; font-family: "Space Mono"; font-weight: 700;
           font-size: 92px; letter-spacing: .06em; color: var(--paper);
           text-shadow: 5px 5px 0 var(--red), 10px 10px 0 rgba(9,12,28,.35);
           opacity: 0; text-transform: uppercase;
         }
-        [data-composition-id="10-f10"] .f10-brains {
+        [data-composition-id="10c-f10c"] .f10-brains {
           position: absolute; left: 78px; bottom: 74px; z-index: 32; opacity: 0;
           font-family: "Space Mono"; font-weight: 700; font-size: 26px; letter-spacing: .14em;
           color: var(--ink); background: var(--mustard); padding: 10px 16px 8px; text-transform: uppercase;
           box-shadow: 6px 6px 0 rgba(9,12,28,.3);
         }
-        [data-composition-id="10-f10"] .f10-rays {
+        [data-composition-id="10c-f10c"] .f10-rays {
           position: absolute; inset: -40%; z-index: 12; opacity: .22;
           background: repeating-conic-gradient(from 0deg, rgba(242,231,209,.9) 0deg 4deg, transparent 4deg 18deg);
         }
-        [data-composition-id="10-f10"] .f10-inv .plate img { filter: saturate(.95) contrast(1.03); }
-        [data-composition-id="10-f10"] .f10-couplet {
+        [data-composition-id="10c-f10c"] .f10-inv .plate img { filter: saturate(.95) contrast(1.03); }
+        [data-composition-id="10c-f10c"] .f10-couplet {
           position: absolute; z-index: 34; font-family: "Space Mono"; font-weight: 700;
           font-size: 30px; letter-spacing: .16em; color: var(--paper); text-transform: uppercase;
           background: rgba(16,26,57,.55); padding: 10px 14px 8px; opacity: 0;
           box-shadow: 0 0 0 2px rgba(242,231,209,.35) inset;
         }
-        [data-composition-id="10-f10"] .f10-invtitle {
+        [data-composition-id="10c-f10c"] .f10-invtitle {
           position: absolute; left: 50%; bottom: 125px; transform: translateX(-50%);
           z-index: 35; text-align: center; white-space: nowrap; opacity: 0;
         }
-        [data-composition-id="10-f10"] .f10-invtitle .display {
+        [data-composition-id="10c-f10c"] .f10-invtitle .display {
           font-size: 146px; color: var(--paper); font-style: normal;
           text-shadow: 7px 7px 0 var(--red), 14px 14px 0 rgba(9,12,28,.35);
         }
-        [data-composition-id="10-f10"] .f10-indest {
+        [data-composition-id="10c-f10c"] .f10-indest {
           position: absolute; left: 50%; bottom: 44px; transform: translateX(-50%);
           z-index: 36; font-family: "Space Mono"; font-weight: 700; font-size: 58px;
           letter-spacing: .2em; color: var(--mustard); text-transform: uppercase;
           text-shadow: 4px 4px 0 var(--ink); opacity: 0; white-space: nowrap;
         }
-        [data-composition-id="10-f10"] .f10-flash {
+        [data-composition-id="10c-f10c"] .f10-flash {
           position: absolute; inset: 0; background: var(--paper); z-index: 80; opacity: 0;
         }
       </style>
 
-      <div id="root" data-composition-id="10-f10" data-width="1920" data-height="1080" data-duration="22.3">
+      <div id="root" data-composition-id="10c-f10c" data-width="1920" data-height="1080" data-duration="6.17">
         <!-- damage / counterattack -->
         <div class="f10-scene f10-damage" id="f10-damage">
           <div class="plate" id="f10-damage-plate">
@@ -185,63 +180,18 @@
 
       <script src="../../assets/hf.js"></script>
       <script>
-        HF.frame("10-f10", function (tl, root) {
-          // torn cover from Frame 9 opens
-          tl.fromTo("#f10-cover", { xPercent: 0, opacity: 1 }, { xPercent: 100, opacity: 0, duration: .55, ease: "power3.out" }, 0);
-
-          // damage scene
-          HF.plate(tl, "#f10-damage-plate img", { s0: 1.06, s1: 1.14, x0: 20, x1: -34, y0: 0, y1: 18, dur: 11.0, at: 0 });
-          HF.bubbles(tl, root, { count: 12, dur: 8.6, min: 7, max: 30, spread: 6.2, opacity: .5, z: 8 });
-
-          tl.fromTo("#f10-damagecard", { opacity: 0, x: 40, rotation: 3 }, { opacity: 1, x: 0, rotation: 1.4, duration: .5, ease: "power3.out" }, .15);
-          HF.reveal(tl, "#f10-l1", 0.0, { y: 24, dur: .45 });
-          // mayo flies off
-          tl.fromTo("#f10-mayo", { opacity: 0, y: 40, rotation: -8 }, { opacity: 1, y: 0, rotation: -4, duration: .2 }, .1);
-          tl.to("#f10-mayo", { x: -120, y: 320, rotation: -70, opacity: 0, duration: .9, ease: "power2.in" }, .7);
-          tl.fromTo("#f10-dmg-mayo", { color: "var(--ink)" }, { color: "var(--red)", duration: .1 }, .7);
-
-          HF.reveal(tl, "#f10-l2", 2.2, { y: 24, dur: .45 });
-          tl.fromTo("#f10-ched", { opacity: 0, y: 30, rotation: 10 }, { opacity: 1, y: 0, rotation: 6, duration: .2 }, 2.3);
-          tl.to("#f10-ched", { x: 240, y: -260, rotation: 70, opacity: 0, duration: .9, ease: "power2.in" }, 2.9);
-          HF.shake(tl, "#f10-damage", 2.2, { amp: 16, beats: 4 });
-
-          tl.to(["#f10-l1", "#f10-l2", "#f10-l3"], { opacity: 0, y: -10, duration: .3 }, 5.72);
-          HF.reveal(tl, "#f10-l3", 4.36, { y: 16, dur: .4 });
-          HF.reveal(tl, "#f10-l4", 6.05, { y: 30, dur: .5 });
-          HF.shake(tl, "#f10-damage", 6.05, { amp: 20, beats: 5 });
-          HF.stamp(tl, "#f10-s1 .stamp", 7.65, { rot: -3, dur: .38 });
-          HF.stamp(tl, "#f10-s2 .stamp", 9.05, { rot: 2.4, dur: .38 });
-
-          // cut to pierce
-          tl.to("#f10-damage", { opacity: 0, duration: .05 }, 11.0);
-          tl.fromTo("#f10-pierce", { opacity: 0 }, { opacity: 1, duration: .05 }, 11.0);
-          HF.plate(tl, "#f10-pierce-plate img", { s0: 1.15, s1: 1.26, x0: -60, x1: 30, y0: 0, y1: -20, dur: 5.13, at: 11.0 });
-          HF.all(".f10-spear").forEach(function (el, i) {
-            tl.fromTo(el, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: .86, duration: .35, ease: "power3.in" }, 11.0 + i * .24);
-          });
-          HF.stamp(tl, "#f10-pw1", 11.0, { rot: -4, dur: .3 });
-          HF.stamp(tl, "#f10-pw2", 12.15, { rot: 2, dur: .3 });
-          HF.stamp(tl, "#f10-pw3", 13.3, { rot: -2, dur: .3 });
-          HF.stamp(tl, "#f10-pw4", 14.45, { rot: 4, dur: .3 });
-          HF.stamp(tl, "#f10-brains", 13.7, { rot: -1.5, dur: .35 });
-          [11.0, 12.15, 13.3, 14.45].forEach(function (t) {
-            HF.shake(tl, "#f10-pierce", t, { amp: 14, beats: 3 });
-          });
-
-          // cut to invincible
-          tl.to("#f10-pierce", { opacity: 0, duration: .05 }, 16.13);
-          tl.fromTo("#f10-inv", { opacity: 0 }, { opacity: 1, duration: .05 }, 16.13);
-          HF.plate(tl, "#f10-inv-plate img", { s0: 1.02, s1: 1.09, x0: 10, x1: -14, y0: 0, y1: 10, dur: 6.17, at: 16.13 });
-          tl.fromTo("#f10-rays", { rotation: 0, opacity: .12 }, { rotation: 22, opacity: .26, duration: 6.17, ease: "none" }, 16.13);
-          HF.reveal(tl, "#f10-c1", 16.13, { x: -20, y: 0, dur: .4 });
-          HF.reveal(tl, "#f10-c2", 17.77, { x: -20, y: 0, dur: .4 });
-          HF.stamp(tl, "#f10-invtitle", 19.16, { rot: -1.2, dur: .45 });
-          HF.stamp(tl, "#f10-indest", 20.55, { rot: 1.2, dur: .45 });
-
-          // white flash to menu
-          tl.fromTo("#f10-flash", { opacity: 0 }, { opacity: 1, duration: .2, ease: "power2.in" }, 22.02);
+        HF.frame("10c-f10c", function (tl, root) {
+          gsap.set("#f10-cover, #f10-damage, #f10-pierce", { display: "none" });
+          gsap.set("#f10-inv", { opacity: 1 });
+          HF.plate(tl, "#f10-inv-plate img", { s0: 1.02, s1: 1.09, x0: 10, x1: -14, y0: 0, y1: 10, dur: 6.17, at: 0 });
+          tl.fromTo("#f10-rays", { rotation: 0, opacity: .12 }, { rotation: 22, opacity: .26, duration: 6.17, ease: "none" }, 0);
+          HF.reveal(tl, "#f10-c1", 0.00, { x: -20, y: 0, dur: .4 });
+          HF.reveal(tl, "#f10-c2", 1.64, { x: -20, y: 0, dur: .4 });
+          HF.stamp(tl, "#f10-invtitle", 3.03, { rot: -1.2, dur: .45 });
+          HF.stamp(tl, "#f10-indest", 4.42, { rot: 1.2, dur: .45 });
+          tl.fromTo("#f10-flash", { opacity: 0 }, { opacity: 1, duration: .2, ease: "power2.in" }, 5.95);
         });
       </script>
-    
-</body>
+    </template>
+  </body>
 </html>

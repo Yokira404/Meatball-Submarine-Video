@@ -5,6 +5,13 @@ renders/render.log
 # HyperFrames runtime cache / review artifacts
 .hyperframes/
 
+# Review screenshots (keep analysis/previews — the player needs them)
+analysis/*.png
+analysis/*.jpg
+
 # OS / editor noise
 Thumbs.db
 .DS_Store
+
+# transient render transaction locks
+renders/.meatball-submarine.hf-transaction-*

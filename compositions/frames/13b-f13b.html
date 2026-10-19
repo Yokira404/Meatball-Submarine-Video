@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>13 — Tomorrow</title></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="13b-f13b"] { background: var(--navy-2); }
+        [data-composition-id="13b-f13b"] .f13-cover {
+          position: absolute; inset: 0; background: var(--navy-2); z-index: 97;
+        }
+        [data-composition-id="13b-f13b"] .f13-choice { position: absolute; inset: 0; z-index: 10; }
+        [data-composition-id="13b-f13b"] .f13-tomorrow { position: absolute; inset: 0; z-index: 20; opacity: 0; }
+        [data-composition-id="13b-f13b"] .f13-end { position: absolute; inset: 0; z-index: 40; opacity: 0; }
+        [data-composition-id="13b-f13b"] .f13-warm {
+          position: absolute; inset: 0; z-index: 30; background: var(--peach); opacity: 0; pointer-events: none;
+        }
+
+        [data-composition-id="13b-f13b"] .f13-order {
+          position: absolute; left: 66px; top: 62px; z-index: 26; width: 430px;
+          padding: 18px 22px 16px; transform: rotate(-1.3deg);
+        }
+        [data-composition-id="13b-f13b"] .f13-order .head {
+          display: flex; justify-content: space-between; border-bottom: 2px solid var(--ink);
+          padding-bottom: 6px; margin-bottom: 8px;
+        }
+        [data-composition-id="13b-f13b"] .f13-orow {
+          display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "Fraunces"; font-weight: 600; font-size: 24px; padding: 7px 0;
+          border-bottom: 1px dashed rgba(22,23,42,.25); color: rgba(22,23,42,.72);
+        }
+        [data-composition-id="13b-f13b"] .f13-orow.win {
+          color: var(--ink); font-size: 28px;
+        }
+        [data-composition-id="13b-f13b"] .f13-orow.win b {
+          color: var(--red); font-family: "Space Mono"; font-size: 12px; letter-spacing: .1em;
+          border: 2px solid var(--red); padding: 2px 6px 1px; opacity: 0;
+        }
+        [data-composition-id="13b-f13b"] .f13-heartline {
+          position: absolute; left: 592px; top: 366px; width: 3px; height: 100px; z-index: 27;
+          background: var(--red); transform-origin: top center; transform: scaleY(0);
+          box-shadow: 0 0 0 1px rgba(22,23,42,.2);
+        }
+        [data-composition-id="13b-f13b"] .f13-choicecopy {
+          position: absolute; left: 548px; bottom: 66px; z-index: 28; width: 840px;
+          background: var(--paper); padding: 18px 26px 14px;
+          box-shadow: 10px 10px 0 rgba(9,12,28,.35); transform: rotate(-1deg);
+        }
+        [data-composition-id="13b-f13b"] .f13-choicecopy .l {
+          font-family: "Fraunces"; font-weight: 600; font-size: 44px; line-height: 1.03;
+          letter-spacing: -.03em; color: var(--ink);
+          opacity: 0; margin-bottom: 8px;
+        }
+        [data-composition-id="13b-f13b"] .f13-choicecopy .l.red { color: var(--red); }
+        [data-composition-id="13b-f13b"] .f13-choicecopy .mono {
+          color: rgba(22,23,42,.62); font-size: 11px; margin-top: 10px; letter-spacing: .1em;
+        }
+
+        [data-composition-id="13b-f13b"] .f13-tomo-copy {
+          position: absolute; left: 72px; bottom: 66px; z-index: 28; width: 840px;
+          background: var(--paper); padding: 20px 26px 16px;
+          box-shadow: 10px 10px 0 rgba(9,12,28,.28); transform: rotate(-1deg);
+        }
+        [data-composition-id="13b-f13b"] .f13-tomo-copy .l {
+          font-family: "Fraunces"; font-weight: 600; font-size: 60px; line-height: 1.0;
+          letter-spacing: -.035em; color: var(--ink); opacity: 0; margin-bottom: 6px;
+          text-shadow: 2px 2px 0 rgba(242,231,209,.5);
+        }
+        [data-composition-id="13b-f13b"] .f13-tomo-copy .l.red { color: var(--red); font-style: italic; }
+        [data-composition-id="13b-f13b"] .f13-tomo-tag {
+          position: absolute; left: 88px; top: 84px; z-index: 28; opacity: 0;
+        }
+        [data-composition-id="13b-f13b"] .f13-tomo-tag .mono { color: rgba(22,23,42,.65); font-size: 12px; margin-top: 5px; }
+        [data-composition-id="13b-f13b"] .f13-seeyou {
+          position: absolute; right: 88px; bottom: 88px; z-index: 28;
+        }
+
+        [data-composition-id="13b-f13b"] .f13-plaque {
+          position: absolute; left: 50%; top: 50%; width: 880px; z-index: 46;
+          transform: translate(-50%, -50%) rotate(.7deg); text-align: center;
+          padding: 36px 44px 30px;
+        }
+        [data-composition-id="13b-f13b"] .f13-plaque .kick {
+          color: var(--red); margin-bottom: 12px;
+        }
+        [data-composition-id="13b-f13b"] .f13-plaque h1 {
+          font-family: "Fraunces"; font-weight: 900; font-style: italic; font-size: 98px;
+          line-height: .82; letter-spacing: -.05em; color: var(--ink); margin: 0;
+        }
+        [data-composition-id="13b-f13b"] .f13-plaque h1 span { display: block; }
+        [data-composition-id="13b-f13b"] .f13-plaque .by {
+          margin-top: 18px; font-family: "Fraunces"; font-weight: 600; font-size: 32px;
+          color: var(--ink);
+        }
+        [data-composition-id="13b-f13b"] .f13-plaque .by em { color: var(--red); font-style: italic; }
+        [data-composition-id="13b-f13b"] .f13-plaque .rule { height: 3px; background: var(--red); margin: 20px auto 18px; width: 60%; }
+        [data-composition-id="13b-f13b"] .f13-plaque .credits {
+          font-family: "Space Mono"; font-size: 12px; letter-spacing: .08em; line-height: 1.8;
+          color: rgba(22,23,42,.66);
+        }
+        [data-composition-id="13b-f13b"] .f13-plaque .thanks {
+          margin-top: 16px; font-family: "Fraunces"; font-style: italic; font-size: 24px; color: var(--ink);
+        }
+        [data-composition-id="13b-f13b"] .f13-plaque .seal {
+          position: absolute; right: 24px; bottom: 20px; width: 64px; height: 64px;
+          border: 2px solid var(--red); border-radius: 50%; color: var(--red);
+          display: grid; place-content: center; font-family: "Space Mono"; font-weight: 700;
+          font-size: 9px; letter-spacing: .1em; transform: rotate(-12deg);
+        }
+        [data-composition-id="13b-f13b"] .f13-plaque .seal b { display: block; font-size: 20px; line-height: 1; }
+        [data-composition-id="13b-f13b"] .f13-dim {
+          position: absolute; inset: 0; background: var(--navy-2); opacity: 0; z-index: 44;
+        }
+        [data-composition-id="13b-f13b"] .f13-black {
+          position: absolute; inset: 0; background: #070b16; z-index: 90; opacity: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="13b-f13b" data-width="1920" data-height="1080" data-duration="15.627">
+        <!-- the choice -->
+        <div class="f13-choice" id="f13-choice">
+          <div class="plate" id="f13-choice-plate">
+            <img src="../../assets/img/choice.jpg" alt="The leviathan chooses the roast beef submarine" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="bubble-field" id="f13-bubbles"></div>
+
+          <div class="f13-order card torn-a" id="f13-order">
+            <div class="head kicker"><span>ORDER 07 · TABLE 04</span><span class="mono">TONIGHT</span></div>
+            <div class="f13-orow"><span>Meatball submarine</span><span>—</span></div>
+            <div class="f13-orow win" id="f13-win"><span>Roast beef submarine</span><b>CHOSEN</b></div>
+          </div>
+
+          <div class="f13-heartline" id="f13-heartline"></div>
+
+          <div class="f13-choicecopy">
+            <div class="l" id="f13-l1">Instead of looking at me</div>
+            <div class="l red" id="f13-l2">You've decided on the<br />roast beef submarine</div>
+            <div class="mono" id="f13-l3">SHE STILL HAS THE MEATBALL ONE</div>
+          </div>
+
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <!-- tomorrow -->
+        <div class="f13-tomorrow" id="f13-tomorrow">
+          <div class="plate" id="f13-tomorrow-plate">
+            <img src="../../assets/img/tomorrow.jpg" alt="The whale-maid waves goodbye in the sunrise" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="bubble-field" id="f13-tomo-bubbles"></div>
+
+          <div class="f13-tomo-tag kicker" id="f13-tomo-tag">
+            <span style="color:var(--red)">TOMORROW · 18:00</span>
+            <div class="mono">SAME OCEAN · SAME SUBMARINE</div>
+          </div>
+
+          <div class="f13-tomo-copy">
+            <div class="l" id="f13-t1">Tomorrow I'll<br />come back again</div>
+            <div class="l red" id="f13-t2">So wait for me, please</div>
+            <div class="l" id="f13-t3" style="font-size: 44px;">Just wait for me, please</div>
+          </div>
+
+          <div class="f13-seeyou" id="f13-seeyou"><div class="stamp ink">See you tomorrow</div></div>
+
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f13-warm" id="f13-warm"></div>
+
+        <!-- end card -->
+        <div class="f13-end" id="f13-end">
+          <div class="plate" id="f13-end-plate">
+            <img src="../../assets/img/endcard.jpg" alt="The paper theatre curtain call" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f13-dim" id="f13-dim"></div>
+          <div class="f13-plaque card torn-b" id="f13-plaque">
+            <div class="kick kicker">A PAPER-THEATRE FILM</div>
+            <h1><span>Meatball</span><span>Submarine</span></h1>
+            <div class="by">music &amp; lyrics — <em>Mili</em></div>
+            <div class="rule"></div>
+            <div class="credits">
+              FROM THE ALBUM MIRACLE MILK · 2015<br />
+              CHARACTER: WHALE-MAID · DIRECTION &amp; DESIGN: THE MEATBALL CREW<br />
+              MADE WITH HYPERFRAMES · 2026
+            </div>
+            <div class="thanks">for everyone who waits for tomorrow</div>
+            <div class="seal"><b>07</b>FIN</div>
+          </div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f13-black" id="f13-black"></div>
+        <div class="f13-cover" id="f13-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("13b-f13b", function (tl, root) {
+          gsap.set("#f13-cover, #f13-choice, #f13-tomorrow", { display: "none" });
+          gsap.set("#f13-end", { opacity: 1 });
+          HF.plate(tl, "#f13-end-plate img", { s0: 1.02, s1: 1.06, x0: 0, x1: -8, y0: 0, y1: 4, dur: 15.627, at: 0 });
+          tl.fromTo("#f13-plaque", { opacity: 0, xPercent: -50, yPercent: -46, scale: .97, rotation: .7 }, { opacity: 1, xPercent: -50, yPercent: -50, scale: 1, rotation: .7, duration: .9, ease: "power3.out" }, 1.0);
+          tl.fromTo("#f13-dim", { opacity: 0 }, { opacity: .32, duration: 1.0 }, 1.2);
+          tl.fromTo("#f13-black", { opacity: 0 }, { opacity: 1, duration: 1.8, ease: "sine.in" }, 13.4);
+        });
+      </script>
+    </template>
+  </body>
+</html>

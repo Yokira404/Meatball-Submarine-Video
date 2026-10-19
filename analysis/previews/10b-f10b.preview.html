@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script src="../../assets/gsap.min.js"></script>
+<title>10b-f10b preview</title>
+<style>html,body{width:1920px;height:1080px;overflow:hidden;margin:0;background:#000}#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}</style>
+</head>
+<body>
+
+      <link rel="stylesheet" href="../../assets/fonts.css" />
+      <link rel="stylesheet" href="../../assets/base.css" />
+      <style>
+        [data-composition-id="10b-f10b"] { background: var(--navy-2); }
+        [data-composition-id="10b-f10b"] .f10-cover {
+          position: absolute; inset: 0; z-index: 97; background: var(--navy-2);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        [data-composition-id="10b-f10b"] .f10-scene { position: absolute; inset: 0; }
+        [data-composition-id="10b-f10b"] .f10-pierce { opacity: 0; z-index: 20; }
+        [data-composition-id="10b-f10b"] .f10-inv { opacity: 0; z-index: 30; }
+        [data-composition-id="10b-f10b"] .f10-damagecard {
+          position: absolute; right: 80px; top: 80px; z-index: 28; width: 420px;
+          padding: 20px 24px 18px; transform: rotate(1.4deg);
+        }
+        [data-composition-id="10b-f10b"] .f10-damagecard .head {
+          border-bottom: 2px solid var(--ink); padding-bottom: 7px; margin-bottom: 10px;
+          display: flex; justify-content: space-between;
+        }
+        [data-composition-id="10b-f10b"] .f10-dmgrow {
+          display: flex; justify-content: space-between; align-items: baseline;
+          font-family: "Space Mono"; font-size: 16px; letter-spacing: .06em; padding: 5px 0;
+          border-bottom: 1px dashed rgba(22,23,42,.3);
+        }
+        [data-composition-id="10b-f10b"] .f10-dmgrow b { color: var(--red); font-size: 18px; }
+        [data-composition-id="10b-f10b"] .f10-lyric {
+          position: absolute; left: 78px; z-index: 29;
+          background: var(--paper); color: var(--ink); padding: 10px 18px 8px;
+          font-family: "Fraunces"; font-weight: 600; font-size: 46px; line-height: 1.02;
+          letter-spacing: -.02em; box-shadow: 7px 7px 0 rgba(9,12,28,.32); opacity: 0;
+        }
+        [data-composition-id="10b-f10b"] .f10-big {
+          position: absolute; left: 78px; z-index: 31;
+          font-family: "Fraunces"; font-weight: 600; font-size: 92px; line-height: .92;
+          letter-spacing: -.035em; color: var(--ink);
+          text-shadow: 5px 5px 0 var(--paper), 11px 11px 0 var(--red);
+          opacity: 0;
+        }
+        [data-composition-id="10b-f10b"] .f10-stamp {
+          position: absolute; z-index: 32;
+        }
+        [data-composition-id="10b-f10b"] .f10-stamp .stamp { font-size: 42px; padding: 12px 20px 10px; }
+        [data-composition-id="10b-f10b"] .f10-blob {
+          position: absolute; z-index: 26; opacity: 0;
+          display: grid; place-content: center; text-align: center;
+          font-family: "Space Mono"; font-weight: 700; font-size: 13px; letter-spacing: .08em;
+        }
+        [data-composition-id="10b-f10b"] .f10-blob b { display: block; font-size: 19px; letter-spacing: .04em; }
+        [data-composition-id="10b-f10b"] .f10-spear {
+          position: absolute; z-index: 22; height: 3px; background: var(--paper);
+          transform-origin: left center; opacity: 0;
+          box-shadow: 0 0 0 1px rgba(22,23,42,.25);
+        }
+        [data-composition-id="10b-f10b"] .f10-spear:after {
+          content: ""; position: absolute; right: -13px; top: -6px;
+          border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+          border-left: 15px solid var(--paper);
+        }
+        [data-composition-id="10b-f10b"] .f10-pierceword {
+          position: absolute; z-index: 31; font-family: "Space Mono"; font-weight: 700;
+          font-size: 92px; letter-spacing: .06em; color: var(--paper);
+          text-shadow: 5px 5px 0 var(--red), 10px 10px 0 rgba(9,12,28,.35);
+          opacity: 0; text-transform: uppercase;
+        }
+        [data-composition-id="10b-f10b"] .f10-brains {
+          position: absolute; left: 78px; bottom: 74px; z-index: 32; opacity: 0;
+          font-family: "Space Mono"; font-weight: 700; font-size: 26px; letter-spacing: .14em;
+          color: var(--ink); background: var(--mustard); padding: 10px 16px 8px; text-transform: uppercase;
+          box-shadow: 6px 6px 0 rgba(9,12,28,.3);
+        }
+        [data-composition-id="10b-f10b"] .f10-rays {
+          position: absolute; inset: -40%; z-index: 12; opacity: .22;
+          background: repeating-conic-gradient(from 0deg, rgba(242,231,209,.9) 0deg 4deg, transparent 4deg 18deg);
+        }
+        [data-composition-id="10b-f10b"] .f10-inv .plate img { filter: saturate(.95) contrast(1.03); }
+        [data-composition-id="10b-f10b"] .f10-couplet {
+          position: absolute; z-index: 34; font-family: "Space Mono"; font-weight: 700;
+          font-size: 30px; letter-spacing: .16em; color: var(--paper); text-transform: uppercase;
+          background: rgba(16,26,57,.55); padding: 10px 14px 8px; opacity: 0;
+          box-shadow: 0 0 0 2px rgba(242,231,209,.35) inset;
+        }
+        [data-composition-id="10b-f10b"] .f10-invtitle {
+          position: absolute; left: 50%; bottom: 125px; transform: translateX(-50%);
+          z-index: 35; text-align: center; white-space: nowrap; opacity: 0;
+        }
+        [data-composition-id="10b-f10b"] .f10-invtitle .display {
+          font-size: 146px; color: var(--paper); font-style: normal;
+          text-shadow: 7px 7px 0 var(--red), 14px 14px 0 rgba(9,12,28,.35);
+        }
+        [data-composition-id="10b-f10b"] .f10-indest {
+          position: absolute; left: 50%; bottom: 44px; transform: translateX(-50%);
+          z-index: 36; font-family: "Space Mono"; font-weight: 700; font-size: 58px;
+          letter-spacing: .2em; color: var(--mustard); text-transform: uppercase;
+          text-shadow: 4px 4px 0 var(--ink); opacity: 0; white-space: nowrap;
+        }
+        [data-composition-id="10b-f10b"] .f10-flash {
+          position: absolute; inset: 0; background: var(--paper); z-index: 80; opacity: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="10b-f10b" data-width="1920" data-height="1080" data-duration="5.13">
+        <!-- damage / counterattack -->
+        <div class="f10-scene f10-damage" id="f10-damage">
+          <div class="plate" id="f10-damage-plate">
+            <img src="../../assets/img/fight-retouch.jpg" alt="The whale-maid fires condiment torpedoes at the sharks" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="bubble-field" id="f10-bubbles"></div>
+
+          <div class="f10-damagecard card torn-a" id="f10-damagecard">
+            <div class="head kicker"><span>DAMAGE REPORT</span><span class="mono">SS MEATBALL</span></div>
+            <div class="f10-dmgrow"><span>MAYONNAISE</span><b id="f10-dmg-mayo">LOST</b></div>
+            <div class="f10-dmgrow"><span>CHEDDAR</span><b id="f10-dmg-ched">LOST</b></div>
+            <div class="f10-dmgrow"><span>HULL</span><b>41%</b></div>
+            <div class="f10-dmgrow"><span>CREW</span><b>STILL HERE</b></div>
+          </div>
+
+          <div class="f10-blob" id="f10-mayo" style="left: 630px; top: 500px; width: 170px; height: 120px; background: var(--cream); color: var(--ink); border: 3px solid var(--ink); border-radius: 48% 52% 60% 40%;">
+            <div><b>MAYO</b>OFF</div>
+          </div>
+          <div class="f10-blob" id="f10-ched" style="left: 780px; top: 380px; width: 150px; height: 105px; background: var(--mustard); color: var(--ink); border: 3px solid var(--ink); border-radius: 55% 40% 55% 45%;">
+            <div><b>CHEDDAR</b>OFF</div>
+          </div>
+
+          <div class="f10-lyric" id="f10-l1" style="top: 700px; max-width: 900px;">Licked off my mayonnaise dressing</div>
+          <div class="f10-lyric" id="f10-l2" style="top: 790px; max-width: 880px; background: var(--mustard);">Tored off my cheddar sliced cheese</div>
+          <div class="f10-lyric" id="f10-l3" style="top: 878px; font-size: 38px; background: var(--paper); color: var(--ink); max-width: 460px;">I may be weak</div>
+          <div class="f10-big" id="f10-l4" style="top: 590px;">But I'll fight<br />your enemies</div>
+          <div class="f10-stamp" id="f10-s1" style="left: 78px; top: 930px;"><div class="stamp solid">So count it on me</div></div>
+          <div class="f10-stamp" id="f10-s2" style="left: 470px; top: 990px;"><div class="stamp ink">Just count it on me</div></div>
+        </div>
+
+        <!-- pierce litany -->
+        <div class="f10-scene f10-pierce" id="f10-pierce" data-layout-allow-overlap>
+          <div class="plate" id="f10-pierce-plate">
+            <img src="../../assets/img/fight-retouch.jpg" alt="Condiment torpedoes pierce the sharks" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f10-spear" style="left: 0px; top: 240px; width: 1500px; transform: rotate(-8deg);"></div>
+          <div class="f10-spear" style="left: 0px; top: 390px; width: 1700px; transform: rotate(-4deg);"></div>
+          <div class="f10-spear" style="left: 0px; top: 540px; width: 1600px; transform: rotate(3deg);"></div>
+          <div class="f10-spear" style="left: 0px; top: 690px; width: 1750px; transform: rotate(7deg);"></div>
+          <div class="f10-spear" style="left: 0px; top: 840px; width: 1500px; transform: rotate(11deg);"></div>
+          <div class="f10-pierceword" id="f10-pw1" style="left: 70px; top: 170px; color: var(--mustard);">Pierce</div>
+          <div class="f10-pierceword" id="f10-pw2" style="left: 360px; top: 330px;">Pierce</div>
+          <div class="f10-pierceword" id="f10-pw3" style="left: 650px; top: 490px; color: var(--mustard);">Pierce</div>
+          <div class="f10-pierceword" id="f10-pw4" style="left: 940px; top: 650px;">Pierce</div>
+          <div class="f10-brains" id="f10-brains">All their tiny brains</div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <!-- invincible -->
+        <div class="f10-scene f10-inv" id="f10-inv">
+          <div class="plate" id="f10-inv-plate">
+            <img src="../../assets/img/invincible.jpg" alt="The whale-maid stands victorious on the submarine" />
+            <div class="paper-tint"></div>
+          </div>
+          <div class="f10-rays" id="f10-rays"></div>
+          <div class="f10-couplet" id="f10-c1" style="left: 76px; top: 292px;">An eye for eye</div>
+          <div class="f10-couplet" id="f10-c2" style="left: 76px; top: 360px; color: var(--mustard);">And arm for arm</div>
+          <div class="f10-invtitle" id="f10-invtitle"><div class="display">I'm invincible</div></div>
+          <div class="f10-indest" id="f10-indest">Indestructible</div>
+          <div class="vignette"></div>
+          <div class="halftone"></div>
+          <div class="grain"></div>
+          <div class="edge-shadow"></div>
+        </div>
+
+        <div class="f10-flash" id="f10-flash"></div>
+        <div class="f10-cover" id="f10-cover"></div>
+      </div>
+
+      <script src="../../assets/hf.js"></script>
+      <script>
+        HF.frame("10b-f10b", function (tl, root) {
+          gsap.set("#f10-cover, #f10-damage, #f10-inv", { display: "none" });
+          gsap.set("#f10-pierce", { opacity: 1 });
+          HF.plate(tl, "#f10-pierce-plate img", { s0: 1.15, s1: 1.26, x0: -60, x1: 30, y0: 0, y1: -20, dur: 5.13, at: 0 });
+          HF.all(".f10-spear").forEach(function (el, i) {
+            tl.fromTo(el, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: .86, duration: .35, ease: "power3.in" }, 0.0 + i * .24);
+          });
+          HF.stamp(tl, "#f10-pw1", 0.00, { rot: -4, dur: .3 });
+          HF.stamp(tl, "#f10-pw2", 1.15, { rot: 2, dur: .3 });
+          HF.stamp(tl, "#f10-pw3", 2.30, { rot: -2, dur: .3 });
+          HF.stamp(tl, "#f10-pw4", 3.45, { rot: 4, dur: .3 });
+          HF.stamp(tl, "#f10-brains", 2.70, { rot: -1.5, dur: .35 });
+          [0.0, 1.15, 2.30, 3.45].forEach(function (t) { HF.shake(tl, "#f10-pierce", t, { amp: 14, beats: 3 }); });
+          tl.fromTo("#f10-flash", { opacity: 0 }, { opacity: 1, duration: .2, ease: "power2.in" }, 5.0);
+        });
+      </script>
+    
+</body>
+</html>
